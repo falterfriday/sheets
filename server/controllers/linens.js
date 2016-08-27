@@ -140,7 +140,6 @@ function LinensController(){
 		});
 	}
 	this.addBatch = function(req, res){
-		console.log(req.body, "controllerrrrr")
 		var batch = new Batches(
 		{
 			status: req.body.status, 
@@ -154,6 +153,17 @@ function LinensController(){
 				res.json(err);
 			}else{
 				res.send()
+			}
+		});
+	}
+	this.getBatches = function(req, res){
+		Batches.find({})
+		.populate("_customer")
+		.exec(function(err,batches ){
+			if(err){
+				res.json(err);
+			}else{
+				res.json(batches);
 			}
 		});
 	}

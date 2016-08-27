@@ -12,6 +12,14 @@
 					<th>Due Date</th>
 				</tr>
 			</thead>
+			<tbody>
+				<tr ng-repeat="batch in batches">
+					<td ng-if="batch.status != 'Completed'">1</td>
+					<td ng-if="batch.status != 'Completed'">{{batch._customer.name}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.status}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.due_date}}</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 	<div class="tables">
@@ -21,10 +29,16 @@
 				<tr>
 					<th>Batch</th>
 					<th>Customer</th>
-					<th>Status</th>
 					<th>Due Date</th>
 				</tr>
 			</thead>
+			<tbody>
+				<tr ng-repeat="batch in batches" >
+					<td ng-if="batch.status == 'Completed'">1</td>
+					<td ng-if="batch.status == 'Completed'">{{batch._customer.name}}</td>
+					<td ng-if="batch.status == 'Completed'">{{batch.due_date}}</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 	<table id="completed_table"></table>

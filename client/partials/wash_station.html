@@ -6,15 +6,15 @@
             <th>Types</th>
             <th>Due Date</th>
         </tr>
-        <tr>
+        <tr ng-repeat ="batch in batches" ng-if="batch.status == 'Received'">
             <!-- ng-repeat  -->
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>1</td>
+            <td>{{batch.customer}}</td>
+            <td>{{batch.due_date}</td>
+            <button ng-click="updateStatus(batch._id)">SEND TO DRYER</button>
         </tr>
     </table>
-<button class="wash_button">SEND TO DRYER</button>
+
     <!-- ng-click in the div-->
 <style>
     * {

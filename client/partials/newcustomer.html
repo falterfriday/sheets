@@ -1,6 +1,8 @@
 <h1>New Customer</h1>
 <p>{{success}}</p>
+<a href="#/customer_manage"><img src="../assets/images/icon_back.png" alt="Back button"></a>
 <form ng-submit='addCustomer()'>
+
   <label>Business Name: <input type="text" ng-model="newCustomer.name"></label><br>
   <label>Contact Name: <input type="text" ng-model="newCustomer.contact_name"></label><br>
   <label>Phone: <input type="text" ng-model="newCustomer.phone"></label><br>
@@ -30,7 +32,7 @@
 	  border-radius: 5px;
 	  font-size: 1.35em;
 	}
-	input[type=submit] {
+	input[type=submit]{
 	  width: 100%;
 	  background:linear-gradient(#0066FF, #000066);
 	  color: white;
@@ -42,10 +44,22 @@
 	  height:2em;
 	  font-size:4em;
 	}
+
 	button {
 	  background-color: red;
 	  color: white;
 	  border-radius: 5px;
 	  font-size: 1.0em;
 	}
+
+	img{	
+      width: 8%;
+      height:auto;
+      position:absolute;
+      right:0;
+      top:0;
+      padding:1%;
+	}
+
+
 </style>
