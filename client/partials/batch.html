@@ -1,24 +1,27 @@
 <h1>New Batch</h1>
-<h2>Current User</h2>
-	<label>Per Item
+<div class="input_divs">
+	<label>Per Item <br>
 		<select ng-model="queuedPerItem.index">
 			<option ng-repeat ="item in peritems track by $index" value= {{$index}}>{{item.name}}</option>
 		</select>
 	</label>
-	<label>Qty
+	<!-- <br> -->
+	<label>Quantity <br>
 		<input type="text" ng-model="queuedPerItem.quantity">
 	</label>
-	<button ng-click="selectPerItem()">Add</button><br>
-	<label>Per Pound
+	<button ng-click="selectPerItem()" class="add_button">Add</button><br>
+</div>
+<div class="input_divs">
+	<label>Per Pound <br>
 		<select ng-model= "queuedPerPound.index">
 			<option ng-repeat="item in perpounds track by $index" value= {{$index}}>{{item.name}}</option>
 		</select>
 	</label>
-	<label>Qty
+	<label>Quantity <br>
 		<input type="text" ng-model="queuedPerPound.quantity">
 	</label>
-	<button ng-click="selectPerPound()">Add</button><br>
-	
+	<button ng-click="selectPerPound()" class="add_button">Add</button><br>
+</div>
 	<hr>
 	<table>
 		<thead>
@@ -29,25 +32,123 @@
 			<th>Subtotal</th>
 		</thead>
 		<tbody>
-			<tr ng-repeat = "part in queue">
-				<td>{{part.name}}</td>
-				<td>{{part.price}}</td>
-				<td>Per {{part.charge}}</td>
-				<td>{{part.quantity}}</td>
-				<td>{{part.subtotal}}</td>
-			</tr>
+				<tr ng-repeat = "part in queue">
+					<td>{{part.name}}</td>
+					<td>{{part.price}}</td>
+					<td>Per {{part.charge}}</td>
+					<td>{{part.quantity}}</td>
+					<td>{{part.subtotal}}</td>
+				</tr>
 		</tbody>
 	</table>
-	<textarea ng-model="newBatch.instructions"></textarea>
 	<form ng-submit = "addBatch()">
-	<label>Customer
+	<label>Customer <br>
 		<select ng-model="newBatch._customer">
 			<option ng-repeat= "customer in customers" value ="{{customer._id}}">{{customer.name}}</option>
 		</select><br>
 	</label>
-	<label>Due Date
+	<label id="date">Due Date <br>
 		<input type="date" name="due_date" ng-model ="newBatch.due_date">
 	</label>
+	<input id="comment" type="text" ng-model="newBatch.instructions"  placeholder="Comments">
 	<input type="submit" name="submit" value="View Summary">
 	<!-- we want another button to appear for confirmation -->
 </form>
+<style media="screen">
+	* {
+		font-family: Arial;
+	}
+	h1 {
+		font-size: 3.5em;
+		margin-bottom: 0.5em;
+		margin-top: 0;
+	}
+	label {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border-radius: 0;
+		width: 10.93em;
+		height: 1.94em;
+		margin: 0 1em 0 0;
+		font-size: 2.5em;
+	}
+	input[type="date"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border-radius: 0;
+		width: 10.93em;
+		height: 1.94em;
+		margin: 0 0 0 0;
+		font-size: 2.5em;
+	}
+	input[type="text"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		width: 2.5em;
+		height: 1.8em;
+		font-size: 2.5em;
+	}
+	.add_button {
+		vertical-align: bottom;
+		width: 35.2%;
+		background:linear-gradient(#0066FF, #000066);
+		color: white;
+		padding: 1.0px 1.0px;
+		margin:0 0 0 1em;
+		border: none;
+		border-radius: 0.3em;
+		cursor: pointer;
+		height:2.43em;
+		font-size:2em;
+	}
+	table {
+    border-collapse: collapse;
+    width: 100%;
+	}
+	td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+		font-size: 2.5em;
+	}
+
+	tbody, thead {
+		display: block;
+	}
+	tbody {
+		height: 36.6em;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	tr:nth-child(even) {
+	    background-color: #dddddd;
+	}
+	tbody td, thead th {
+    width: 20.4%;  /* Optional */
+	}
+	input[type=submit] {
+		width: 100%;
+		background:linear-gradient(lightgreen, darkgreen);
+		color: white;
+		padding: 1.0px 1.0px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 0.3em;
+		cursor: pointer;
+		height:2em;
+	  font-size:4em;
+	}
+	#date {
+		margin: 0 0 0 2em;
+	}
+	#comment {
+		width: 99%;
+		margin-top: 0.5em;
+	}
+</style>
