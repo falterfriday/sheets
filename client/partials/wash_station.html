@@ -5,13 +5,32 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
+            <th>Action</th>
         </tr>
-        <tr ng-repeat ="batch in batches" ng-if="batch.status == 'Received'">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}">
             <!-- ng-repeat  -->
             <td>1</td>
-            <td>{{batch.customer}}</td>
-            <td>{{batch.due_date}</td>
-            <button ng-click="updateStatus(batch._id)">SEND TO DRYER</button>
+            <td>{{batch._customer.name}}</td>
+            <td>none</td>
+            <td>{{batch.due_date}}</td>
+            <td><button ng-click="updateStatus(batch)">SEND TO DRYER</button></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>Batch Number</th>
+            <th>Company Name</th>
+            <th>Types</th>
+            <th>Due Date</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}">
+            <!-- ng-repeat  -->
+            <td>1</td>
+            <td>{{batch._customer.name}}</td>
+            <td>none</td>
+            <td>{{batch.due_date}}</td>
+            <td><button ng-click="updateStatus(batch)">SEND TO DRYER</button></td>
         </tr>
     </table>
 

@@ -8,9 +8,8 @@ module.exports = function(app){
 	app.get('/get_items', linens.getItems);
 	app.post('/edit_item/:id', linens.editItem);
 	app.post('/delete_item', linens.deleteItem);
-	app.get('/get_batchpounds', linens.getPerPounds);
-	app.get('/get_batchitems', linens.getPerItems);
 	app.post('/add_batch', linens.addBatch);
 	app.get('/get_batches', linens.getBatches);
+	app.post('/update_status', linens.updateStatus);
 }
 
