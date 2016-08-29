@@ -5,16 +5,17 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
+            <th>Action</th>
         </tr>
-        <tr>
+        <tr ng-repeat ="batch in batches|filter:{status: 'Fold'}">
             <!-- ng-repeat  -->
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>1</td>
+            <td>{{batch._customer.name}}</td>
+            <td>none</td>
+            <td>{{batch.due_date}}</td>
+            <td><button ng-click="updateStatus(batch)">SEND TO FINISH</button></td>
         </tr>
     </table>
-<button class="folder_button">SEND TO FINISH</button>
     <!-- ng-click in the div-->
 <style>
     * {
