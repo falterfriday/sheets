@@ -121,24 +121,6 @@ function LinensController(){
 			}
 		});
 	}
-	this.getPerPounds = function(req, res){
-		Items.find({charge: "pound"}, function(err, items){
-			if(err){
-				res.json(err);
-			}else{
-				res.json(items);
-			}
-		});
-	}
-	this.getPerItems = function(req, res){
-		Items.find({charge: "item"}, function(err, items){
-			if(err){
-				res.json(err);
-			}else{
-				res.json(items);
-			}
-		});
-	}
 	this.addBatch = function(req, res){
 		var batch = new Batches(
 		{
@@ -167,5 +149,33 @@ function LinensController(){
 			}
 		});
 	}
+	this.updateStatus = function(req, res){
+		console.log(req.body)
+		Batches.findOne({ _id: req.body._id}, function(err, batch){
+			if(err){
+				res.json(err);
+			}else{
+				if(batch.status == "Received")
+					batch.status = "Washing";
+				else if(batch.status == "Washing")
+					batch.status = "Dry";
+				else if(batch.status == "Dry")
+					batch.status = "Fold";
+				else if(batch.status == "Fold")
+					batch.status = "Finishing";
+				else if(batch.status == "Finishing")
+					batch.status = "Completed";
+				console.log(batch, 'controlllererrrrrr');
+				batch.save(function(err){
+					if (err){
+						res.json(err);
+					}else{
+						res.send();
+					}
+				});
+			}
+		});
+	}
 }
+
 module.exports = new LinensController();
