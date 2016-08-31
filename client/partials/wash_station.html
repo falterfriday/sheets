@@ -5,17 +5,16 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
-            <th>Action</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}" ng-class="{'highlight': selected}" ng-click = "highlight(batch)">
             <!-- ng-repeat  -->
             <td>1</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
             <td>{{batch.due_date}}</td>
-            <td><button ng-click="updateStatus(batch)">SEND TO DRYER</button></td>
         </tr>
     </table>
+    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">SEND TO DRYER</button>
     <table>
         <tr>
             <th>Batch Number</th>
@@ -24,16 +23,16 @@
             <th>Due Date</th>
             <th>Action</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}" ng-class="{'highlight': selected2}" ng-click = "highlight(batch)">
             <!-- ng-repeat  -->
             <td>1</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
             <td>{{batch.due_date}}</td>
-            <td><button ng-click="updateStatus(batch)">SEND TO DRYER</button></td>
+            </td>
         </tr>
     </table>
-
+    <button ng-click="updateStatus(queued_item)" ng-hide="hide_val2" class = "wash_button">SEND TO DRYER</button>
     <!-- ng-click in the div-->
 <style>
     * {
@@ -56,9 +55,9 @@
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    tr:hover {
+/*    tr:hover {
         background-color: #19FFC5;
-    }
+    }*/
     .wash_button {
     width: 100%;
     background-color: #3366ff;
@@ -76,5 +75,8 @@
     background: -o-linear-gradient(right, #FF197E, #FFF819); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #FF197E, #FFF819); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #FF197E ,#FFF819); /* Standard syntax (must be last) */
+    }
+   .highlight{
+        background-color: #19FFC5;
     }
 </style>
