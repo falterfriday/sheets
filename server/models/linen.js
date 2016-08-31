@@ -39,7 +39,9 @@ var CustomerSchema = new mongoose.Schema({
 
 mongoose.model('Batches', BatchSchema);
 var Batches = mongoose.model('Batches')
+
 mongoose.model('Items', ItemSchema); 
 var Items = mongoose.model('Items')
+
 mongoose.model('Customers', CustomerSchema); 
 var Customers = mongoose.model('Customers')
