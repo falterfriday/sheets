@@ -6,12 +6,12 @@
             <th>Types</th>
             <th>Due Date</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}" ng-class="{'highlight': selected}" ng-click = "highlight(batch)">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}" ng-class="{'highlight': isSelected(batch)}" ng-click = "highlight(batch)">
             <!-- ng-repeat  -->
-            <td>1</td>
+            <td>{{batch._id.slice(batch._id.length-5)}}</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
-            <td>{{batch.due_date}}</td>
+            <td>{{batch.due_date| date: 'M/d/yy'}}</td>
         </tr>
     </table>
     <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">SEND TO DRYER</button>
@@ -21,14 +21,13 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
-            <th>Action</th>
         </tr>
         <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}" ng-class="{'highlight': selected2}" ng-click = "highlight(batch)">
             <!-- ng-repeat  -->
-            <td>1</td>
+            <td>{{batch._id.slice(batch._id.length-5)}}</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
-            <td>{{batch.due_date}}</td>
+            <td>{{batch.due_date | date: 'M/d/yy'}}</td>
             </td>
         </tr>
     </table>

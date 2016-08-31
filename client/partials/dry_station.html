@@ -5,17 +5,16 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
-            <th>Action</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Dry'}">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Dry'}" ng-click = "highlight(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->
-            <td>1</td>
+            <td>{{batch._id.slice(-5)}}</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
-            <td>{{batch.due_date}}</td>
-            <td><button ng-click="updateStatus(batch)">SEND TO FOLD</button></td>
+            <td>{{batch.due_date | date: 'M/d/yy'}}</td>
         </tr>
     </table>
+    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="dry_button">SEND TO FOLD</button>
 <style>
     * {
         font-family: Arial;
@@ -37,9 +36,9 @@
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    tr:hover {
+    /*tr:hover {
         background-color: #19FFC5;
-    }
+    }*/
     .dry_button {
         width: 100%;
         background-color: #3366ff;
@@ -62,5 +61,8 @@
         /* For Firefox 3.6 to 15 */
         background: linear-gradient(to right, #FF4D19, #FF197E 40%, #FFF819);
         /* Standard syntax (must be last) */
+    }
+    .highlight{
+        background-color: #19FFC5;
     }
 </style>
