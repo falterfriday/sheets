@@ -2,6 +2,11 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	$scope.customers;
 	$scope.items;
 	$scope.batches;
+	$scope.queued_item;
+	$scope.selected = false;
+	$scope.selected2 = false;
+	$scope.hide_val = true;
+	$scope.hide_val2 = true;
 	$scope.completed = [];
 	$scope.processing = [];
 	$scope.queue = [];
@@ -59,9 +64,27 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		});
 	}
 	$scope.updateStatus = function(batch){
-		console.log(batch)
+		$scope.selected = false;
+		$scope.queued_item = undefined;
+		if($scope.hide_val2 == false){
+			$scope.hide_val2 = true;
+		}
+		if($scope.hide_val == false){
+			$scope.hide_val = true
+		}
 		batchFactory.editStatus(batch, function(results){
 			$scope.getBatches()
-		})
+		});
 	}
+	$scope.highlight = function(batch){
+		$scope.queued_item = batch;
+
+		if(batch.status == 'Washing'){
+			$scope.hide_val2 = false;		
+			$scope.selected2 = true;
+		}else{
+			$scope.hide_val = false;
+			$scope.selected = true;
+		}
+	}	
 }]);

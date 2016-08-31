@@ -9,6 +9,7 @@
 					<th>Batch</th>
 					<th>Customer</th>
 					<th>Status</th>
+					<th>Created</th>
 					<th>Due Date</th>
 				</tr>
 			</thead>
@@ -17,7 +18,8 @@
 					<td ng-if="batch.status != 'Completed'">1</td>
 					<td ng-if="batch.status != 'Completed'">{{batch._customer.name}}</td>
 					<td ng-if="batch.status != 'Completed'">{{batch.status}}</td>
-					<td ng-if="batch.status != 'Completed'">{{batch.due_date}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.createdAt | date: 'M/d/yy h:mm a'}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.due_date | date: 'M/d/yy'}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -36,7 +38,7 @@
 				<tr ng-repeat="batch in batches" >
 					<td ng-if="batch.status == 'Completed'">1</td>
 					<td ng-if="batch.status == 'Completed'">{{batch._customer.name}}</td>
-					<td ng-if="batch.status == 'Completed'">{{batch.due_date}}</td>
+					<td ng-if="batch.status == 'Completed'">{{batch.due_date | date:'M/d/yy'}}</td>
 				</tr>
 			</tbody>
 		</table>
