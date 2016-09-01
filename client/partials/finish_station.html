@@ -5,17 +5,16 @@
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
-            <th>Action</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Finishing'}">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Finishing'}" ng-click = "highlight(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->
-            <td>1</td>
+            <td>{{batch._id.slice(-5)}}</td>
             <td>{{batch._customer.name}}</td>
             <td>none</td>
-            <td>{{batch.due_date}}</td>
-            <td><button ng-click="updateStatus(batch)">SEND TO SEND TO COMPLETE</button></td>
+            <td>{{batch.due_date | date: 'M/d/yy'}}</td>
         </tr>
     </table>
+    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class = "finish_button">SEND TO SEND TO COMPLETE</button>
     <!-- ng-click in the div-->
 <style>
     * {
@@ -38,10 +37,10 @@
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    tr:hover {
+    .highlight {
         background-color: #19FFC5;
     }
-    .Finish_button {
+    .finish_button {
         width: 100%;
         background-color: #3366ff;
         color: white;

@@ -70,21 +70,26 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.hide_val2 = true;
 		}
 		if($scope.hide_val == false){
-			$scope.hide_val = true
+			$scope.hide_val = true;
 		}
 		batchFactory.editStatus(batch, function(results){
-			$scope.getBatches()
+			$scope.getBatches();
 		});
 	}
 	$scope.highlight = function(batch){
+		if($scope.queued_item != batch)
 		$scope.queued_item = batch;
-
+		else if($scope.queued_item == batch){
+			$scope.queued_item = undefined;
+		}
 		if(batch.status == 'Washing'){
-			$scope.hide_val2 = false;		
-			$scope.selected2 = true;
+			$scope.hide_val2 = !$scope.hide_val2;		
 		}else{
-			$scope.hide_val = false;
-			$scope.selected = true;
+			$scope.hide_val = !$scope.hide_val;
+			
 		}
 	}	
+	$scope.isSelected = function(batch) {
+    	return $scope.queued_item === batch;
+	}
 }]);
