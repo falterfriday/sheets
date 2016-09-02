@@ -1,4 +1,8 @@
+<div id="header">
 <h1>WASH</h1>
+<button><a href="#/">Stations</a></button>
+</div>
+<h2>Recieved and Ready for the Wash</h2>
     <table>
         <tr>
             <th>Batch Number</th>
@@ -14,7 +18,8 @@
             <td>{{batch.due_date| date: 'M/d/yy'}}</td>
         </tr>
     </table>
-    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">SEND TO DRYER</button>
+    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">PUT IN WASHER</button>
+    <h2 id="wash_list">Washed and Ready for the Dryer</h2>
     <table>
         <tr>
             <th>Batch Number</th>
@@ -22,6 +27,7 @@
             <th>Types</th>
             <th>Due Date</th>
         </tr>
+
         <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}" ng-class="{'highlight': selected2}" ng-click = "highlight(batch)">
             <!-- ng-repeat  -->
             <td>{{batch._id.slice(batch._id.length-5)}}</td>
@@ -44,6 +50,7 @@
 		font-size: 3.5em;
 		margin-bottom: 0.5em;
 		margin-top: 0;
+        display: inline-block;
 	}
     table {
         border-collapse: collapse;
@@ -53,6 +60,16 @@
         padding: 1.3em;
         text-align: left;
         border-bottom: 1px solid #ddd;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: none;
+    }
+    #header{
+        display: block;
+    }
+    #wash_list{
+        margin-top: 40px;
     }
 /*    tr:hover {
         background-color: #19FFC5;
