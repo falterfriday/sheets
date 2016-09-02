@@ -7,6 +7,10 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	$scope.selected2 = false;
 	$scope.hide_val = true;
 	$scope.hide_val2 = true;
+	$scope.hide_val3 = true;
+	$scope.hide_val4 = false;
+	$scope.hide_val5 = true;
+	$scope.hide_val6 = false;
 	$scope.completed = [];
 	$scope.processing = [];
 	$scope.queue = [];
@@ -76,20 +80,71 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.getBatches();
 		});
 	}
+	// $scope.highlight = function(batch){
+	// 	if($scope.queued_item == batch){
+	// 		$scope.queued_item = undefined;
+	// 		if(batch.status == 'Washing'){
+	// 			$scope.hide_val2 = true;
+	// 		}else{
+	// 			$scope.hide_val = true;
+	// 		}
+	// 	}
+	// 	if($scope.queued_item == undefined){
+	// 		$scope.queued_item = batch;
+	// 		if(batch.status == 'Washing'){
+	// 			$scope.hide_val2 = false;
+	// 		}else{
+	// 			$scope.hide_val = false;
+	// 		}
+	// 	}
+	// 	if($scope.queued_item != undefined && $scope.queued_item != batch){
+	// 		$scope.queued_item = batch;
+	// 		$scope.hide_val = false;
+	// 	}
+	// }
 	$scope.highlight = function(batch){
-		if($scope.queued_item != batch)
-		$scope.queued_item = batch;
-		else if($scope.queued_item == batch){
-			$scope.queued_item = undefined;
-		}
-		if(batch.status == 'Washing'){
-			$scope.hide_val2 = !$scope.hide_val2;		
+		console.log(batch)
+		if(batch.status == "Received"){
+			$scope.queued_item = batch;
+			$scope.hide_val = false;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = false;
+			$scope.hide_val4 = true;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+			$scope.queued_item = batch;
 		}else{
-			$scope.hide_val = !$scope.hide_val;
-			
+			$scope.queued_item = batch
+			$scope.hide_val = true;
+			$scope.hide_val2 = false;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.queued_item = batch;
+			$scope.hide_val5 = false;
+			$scope.hide_val6 = true;
 		}
 	}	
 	$scope.isSelected = function(batch) {
     	return $scope.queued_item === batch;
+	}
+	$scope.deselect = function(batch){
+		if(batch.status == "Received"){
+			$scope.queued_item = undefined;
+			$scope.hide_val = true;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+		}else{
+			$scope.queued_item = undefined;
+			$scope.hide_val = true;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+
+		}
 	}
 }]);
