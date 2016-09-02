@@ -2,7 +2,7 @@ console.log('mongo connection, mongoose setup');
 
 var mongoose=require('mongoose'),
 
-    autoIncrement=require('mongoose-auto-increment'),
+    // autoIncrement=require('mongoose-auto-increment'),
 
     fs=require('fs'),
 

@@ -24,7 +24,7 @@ $scope.allCustomers()
 
 $scope.addCustomer = function(){
 	customerFactory.create($scope.newCustomer, function(results){
-		$scope.success = results.name
+		$scope.success = (results.name + " was successfully added.")
 		$scope.newCustomer = {};	
 	})
 	$scope.allCustomers()
