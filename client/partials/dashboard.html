@@ -9,15 +9,17 @@
 					<th>Batch</th>
 					<th>Customer</th>
 					<th>Status</th>
-					<th>Due Date</th>
+					<th>Created</th>
+					<th>Due</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="batch in batches">
-					<td ng-if="batch.status != 'Completed'">1</td>
+					<td ng-if="batch.status != 'Completed'">{{batch._id.slice(-5)}}</td>
 					<td ng-if="batch.status != 'Completed'">{{batch._customer.name}}</td>
 					<td ng-if="batch.status != 'Completed'">{{batch.status}}</td>
-					<td ng-if="batch.status != 'Completed'">{{batch.due_date}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.createdAt | date: 'M/d/yy h:mm a'}}</td>
+					<td ng-if="batch.status != 'Completed'">{{batch.due_date | date: 'M/d/yy'}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -29,14 +31,14 @@
 				<tr>
 					<th>Batch</th>
 					<th>Customer</th>
-					<th>Due Date</th>
+					<th>Due</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="batch in batches" >
-					<td ng-if="batch.status == 'Completed'">1</td>
+					<td ng-if="batch.status == 'Completed'">{{batch._id.slice(-5)}}</td>
 					<td ng-if="batch.status == 'Completed'">{{batch._customer.name}}</td>
-					<td ng-if="batch.status == 'Completed'">{{batch.due_date}}</td>
+					<td ng-if="batch.status == 'Completed'">{{batch.due_date | date:'M/d/yy'}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -44,6 +46,7 @@
 	<table id="completed_table"></table>
 	<button class="button" id="customer_management"><a href="#/customer_manage">Customer Management</a></button>
 	<button class="button" id="item_management"><a href="#/item_manage">Item Management</a></button>
+	<button class="button" id="stations"><a href="#/">Return to Stations</a></button>
 </div>
 <style media="screen">
 	* {
@@ -60,6 +63,9 @@
 		background: linear-gradient(#009e0f, #006600);
 	}
 	#new_customer {
+		background:linear-gradient(#0066FF, #000066);
+	}
+	#stations {
 		background:linear-gradient(#0066FF, #000066);
 	}
 	h2 {
@@ -83,7 +89,7 @@
     border-collapse: collapse;
     width: 100%;
 		border: solid gray 1px;
-		color: white;
+		color: black;
 	}
 	td, th {
 		border: 1px solid #dddddd;

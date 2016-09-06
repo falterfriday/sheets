@@ -1,20 +1,23 @@
+<div id="header">
 <h1>FOLDER</h1>
-    <table>
+<button><a href="#/">Stations</a></button>
+</div>    <table>
         <tr>
             <th>Batch Number</th>
             <th>Company Name</th>
             <th>Types</th>
             <th>Due Date</th>
         </tr>
-        <tr>
+        <tr ng-repeat ="batch in batches|filter:{status: 'Fold'}" ng-click = "highlight(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{batch._id.slice(batch._id.length-5)}}</td>
+            <td>{{batch._customer.name}}</td>
+            <td>none</td>
+            <td>{{batch.due_date | date: 'M/d/yy'}}</td>
+            
         </tr>
     </table>
-<button class="folder_button">SEND TO FINISH</button>
+    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class = "folder_button">SEND TO FINISH</button>
     <!-- ng-click in the div-->
 <style>
     * {
@@ -37,7 +40,7 @@
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    tr:hover {
+    .highlight {
         background-color: #19FFC5;
     }
     .folder_button {
