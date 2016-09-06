@@ -6,30 +6,20 @@ app.factory('batchFactory', ['$http', function($http){
 				callback(results.data);
 			});
 		}
-		this.status = function(batch, callback){
-			
-		}
 		this.delete = function(batch, callback){
 			
 		}
-		this.edit = function(batch, callback){
-			
+		this.editStatus = function(batch, callback){
+			console.log(batch, "Factoryyyyyy")
+			$http.post('/update_status', batch).then(function(results){
+				callback(results.data);
+			});
 		}
 		this.show = function(batch, callback){
 			
 		}
 		this.allCustomers = function(callback){
 			$http.get('/get_customers').then(function(results){
-				callback(results.data);
-			});
-		}
-		this.getPounds = function(callback){
-			$http.get('/get_batchpounds').then(function(results){
-				callback(results.data);
-			});
-		}
-		this.getItems = function(callback){
-			$http.get('/get_batchitems').then(function(results){
 				callback(results.data);
 			});
 		}

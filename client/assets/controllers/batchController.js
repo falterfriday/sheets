@@ -1,24 +1,23 @@
 app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams', function($scope, batchFactory, $location, $cookies, $routeParams){
 	$scope.customers;
-	$scope.perpounds;
-	$scope.peritems;
-	// $scope.items;
-	// $scope.batches;
+	$scope.items;
+	$scope.batches;
+	$scope.queued_item;
+	$scope.selected = false;
+	$scope.selected2 = false;
+	$scope.hide_val = true;
+	$scope.hide_val2 = true;
+	$scope.hide_val3 = true;
+	$scope.hide_val4 = false;
+	$scope.hide_val5 = true;
+	$scope.hide_val6 = false;
 	$scope.completed = [];
 	$scope.processing = [];
 	$scope.queue = [];
 
 	$scope.getBatches = function(){
 		batchFactory.allBatches(function(results){
-			$scope.batches = results
-			// var arr = results;
-			// for(var i=0; i<arr.length;i++){
-			// 	if(arr[i].status == "Complete"){
-			// 		$scope.completed.push(arr[i]);
-			// 	}else{
-			// 		$scope.processing.push(arr[i]);
-			// 	}
-			// }
+			$scope.batches = results;
 		});
 	}
 	$scope.getCustomers = function(){
@@ -26,29 +25,17 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.customers = results;
 		});
 	}
-	// $scope.getItems = function(){
-	// 	batchFactory.allItems(function(results){
-	// 		$scope.items = results
-	// 	})
-	// }
-	$scope.getPerPounds = function(){
-		batchFactory.getPounds(function(results){
-			$scope.perpounds = results;
-		});
-	}
-	$scope.getPerItems = function(){
-		batchFactory.getItems(function(results){
-			$scope.peritems = results;
-		});
+	$scope.getItems = function(){
+		batchFactory.allItems(function(results){
+			$scope.items = results;
+		})
 	}
 	$scope.getBatches();
 	$scope.getCustomers();
-	// $scope.getItems();
-	$scope.getPerPounds();
-	$scope.getPerItems();
+	$scope.getItems();
 
 	$scope.selectPerItem = function(){
-		var arr = $scope.peritems;
+		var arr = $scope.items;
 		for (var i=0; i<arr.length; i++){
 			if ($scope.queuedPerItem.index == i){
 				$scope.queuedPerItem.name = arr[i].name;
@@ -61,7 +48,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		$scope.queuedPerItem = {};
 	}
 	$scope.selectPerPound = function(){
-		var arr = $scope.perpounds;
+		var arr = $scope.items;
 		for (var i=0; i<arr.length; i++){
 			if ($scope.queuedPerPound.index == i){
 				$scope.queuedPerPound.name = arr[i].name;
@@ -79,5 +66,85 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		batchFactory.create($scope.newBatch, function(results){
 			$location.url('/dashboard');
 		});
+	}
+	$scope.updateStatus = function(batch){
+		$scope.selected = false;
+		$scope.queued_item = undefined;
+		if($scope.hide_val2 == false){
+			$scope.hide_val2 = true;
+		}
+		if($scope.hide_val == false){
+			$scope.hide_val = true;
+		}
+		batchFactory.editStatus(batch, function(results){
+			$scope.getBatches();
+		});
+	}
+	// $scope.highlight = function(batch){
+	// 	if($scope.queued_item == batch){
+	// 		$scope.queued_item = undefined;
+	// 		if(batch.status == 'Washing'){
+	// 			$scope.hide_val2 = true;
+	// 		}else{
+	// 			$scope.hide_val = true;
+	// 		}
+	// 	}
+	// 	if($scope.queued_item == undefined){
+	// 		$scope.queued_item = batch;
+	// 		if(batch.status == 'Washing'){
+	// 			$scope.hide_val2 = false;
+	// 		}else{
+	// 			$scope.hide_val = false;
+	// 		}
+	// 	}
+	// 	if($scope.queued_item != undefined && $scope.queued_item != batch){
+	// 		$scope.queued_item = batch;
+	// 		$scope.hide_val = false;
+	// 	}
+	// }
+	$scope.highlight = function(batch){
+		console.log(batch)
+		if(batch.status == "Received"){
+			$scope.queued_item = batch;
+			$scope.hide_val = false;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = false;
+			$scope.hide_val4 = true;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+			$scope.queued_item = batch;
+		}else{
+			$scope.queued_item = batch
+			$scope.hide_val = true;
+			$scope.hide_val2 = false;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.queued_item = batch;
+			$scope.hide_val5 = false;
+			$scope.hide_val6 = true;
+		}
+	}	
+	$scope.isSelected = function(batch) {
+    	return $scope.queued_item === batch;
+	}
+	$scope.deselect = function(batch){
+		if(batch.status == "Received"){
+			$scope.queued_item = undefined;
+			$scope.hide_val = true;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+		}else{
+			$scope.queued_item = undefined;
+			$scope.hide_val = true;
+			$scope.hide_val2 = true;
+			$scope.hide_val3 = true;
+			$scope.hide_val4 = false;
+			$scope.hide_val5 = true;
+			$scope.hide_val6 = false;
+
+		}
 	}
 }]);
