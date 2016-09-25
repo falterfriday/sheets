@@ -19,17 +19,17 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		batchFactory.allBatches(function(results){
 			$scope.batches = results;
 		});
-	}
+	};
 	$scope.getCustomers = function(){
 		batchFactory.allCustomers(function(results){
 			$scope.customers = results;
 		});
-	}
+	};
 	$scope.getItems = function(){
 		batchFactory.allItems(function(results){
 			$scope.items = results;
-		})
-	}
+		});
+	};
 	$scope.getBatches();
 	$scope.getCustomers();
 	$scope.getItems();
@@ -46,7 +46,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		$scope.queuedPerItem.subtotal = parseInt($scope.queuedPerItem.price)*parseInt($scope.queuedPerItem.quantity);
 		$scope.queue.push($scope.queuedPerItem);
 		$scope.queuedPerItem = {};
-	}
+	};
 	$scope.selectPerPound = function(){
 		var arr = $scope.items;
 		for (var i=0; i<arr.length; i++){
@@ -59,27 +59,27 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		$scope.queuedPerPound.subtotal = parseInt($scope.queuedPerPound.price)*parseInt($scope.queuedPerPound.quantity);
 		$scope.queue.push($scope.queuedPerPound);
 		$scope.queuedPerPound = {};
-	}
+	};
 	$scope.addBatch = function(){
 		$scope.newBatch.order = $scope.queue;
 		$scope.newBatch.status = "Received";
 		batchFactory.create($scope.newBatch, function(results){
 			$location.url('/dashboard');
 		});
-	}
+	};
 	$scope.updateStatus = function(batch){
 		$scope.selected = false;
 		$scope.queued_item = undefined;
-		if($scope.hide_val2 == false){
+		if($scope.hide_val2 === false){
 			$scope.hide_val2 = true;
 		}
-		if($scope.hide_val == false){
+		if($scope.hide_val === false){
 			$scope.hide_val = true;
 		}
 		batchFactory.editStatus(batch, function(results){
 			$scope.getBatches();
 		});
-	}
+	};
 	// $scope.highlight = function(batch){
 	// 	if($scope.queued_item == batch){
 	// 		$scope.queued_item = undefined;
@@ -103,7 +103,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	// 	}
 	// }
 	$scope.highlight = function(batch){
-		console.log(batch)
+		console.log(batch);
 		if(batch.status == "Received"){
 			$scope.queued_item = batch;
 			$scope.hide_val = false;
@@ -114,7 +114,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.hide_val6 = false;
 			$scope.queued_item = batch;
 		}else{
-			$scope.queued_item = batch
+			$scope.queued_item = batch;
 			$scope.hide_val = true;
 			$scope.hide_val2 = false;
 			$scope.hide_val3 = true;
@@ -123,10 +123,10 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.hide_val5 = false;
 			$scope.hide_val6 = true;
 		}
-	}	
+	};
 	$scope.isSelected = function(batch) {
     	return $scope.queued_item === batch;
-	}
+	};
 	$scope.deselect = function(batch){
 		if(batch.status == "Received"){
 			$scope.queued_item = undefined;
@@ -146,5 +146,5 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.hide_val6 = false;
 
 		}
-	}
+	};
 }]);
