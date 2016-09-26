@@ -43,7 +43,8 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 				$scope.queuedPerItem.price = arr[i].price;
 			}
 		}
-		$scope.queuedPerItem.subtotal = parseInt($scope.queuedPerItem.price)*parseInt($scope.queuedPerItem.quantity);
+		console.log(parseFloat($scope.queuedPerItem.price))
+		$scope.queuedPerItem.subtotal = parseFloat($scope.queuedPerItem.price)*parseInt($scope.queuedPerItem.quantity);
 		$scope.queue.push($scope.queuedPerItem);
 		$scope.queuedPerItem = {};
 	};
@@ -57,7 +58,8 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 				$scope.queuedPerPound.price = arr[i].price;
 			}
 		}
-		$scope.queuedPerPound.subtotal = parseInt($scope.queuedPerPound.price)*parseInt($scope.queuedPerPound.quantity);
+		console.log(($scope.queuedPerPound.price))
+		$scope.queuedPerPound.subtotal = parseFloat($scope.queuedPerPound.price)*parseInt($scope.queuedPerPound.quantity);
 		$scope.queue.push($scope.queuedPerPound);
 		$scope.queuedPerPound = {};
 	};
