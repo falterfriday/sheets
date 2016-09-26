@@ -7,7 +7,6 @@
         <tr>
             <th>Batch Number</th>
             <th>Company Name</th>
-            <th>Types</th>
             <th>Due Date</th>
             <th>Action</th>
         </tr>
@@ -15,7 +14,6 @@
             <!-- ng-repeat  -->
             <td>{{batch._id.slice(batch._id.length-5)}}</td>
             <td>{{batch._customer.name}}</td>
-            <td>none</td>
             <td>{{batch.due_date| date: 'M/d/yy'}}</td>
             <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
         </tr>
@@ -26,7 +24,6 @@
         <tr>
             <th>Batch Number</th>
             <th>Company Name</th>
-            <th>Types</th>
             <th>Due Date</th>
             <th>Action</th>
         </tr>
@@ -35,7 +32,6 @@
             <!-- ng-repeat  -->
             <td>{{batch._id.slice(batch._id.length-5)}}</td>
             <td>{{batch._customer.name}}</td>
-            <td>none</td>
             <td>{{batch.due_date | date: 'M/d/yy'}}</td>
             <td><button ng-click="deselect(batch)" ng-hide = "hide_val5">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val6">Select</button></td>
         </tr>
