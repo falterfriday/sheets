@@ -1,0 +1,26 @@
+{
+  "name": "sheetyapp",
+  "description": "Laundry management application for Ocean Rentals Ltd.",
+  "main": "server.js",
+  "authors": [
+    "jauschalley <jauschalley@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "sheet"
+  ],
+  "homepage": "https://github.com/jauschalley/sheetyapp",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-cookies": "^1.5.8",
+    "angular": "^1.5.8"
+  }
+}

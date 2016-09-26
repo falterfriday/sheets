@@ -1,1 +1,41 @@
 /*all the css you could ask for*/
+* {
+    font-family: Arial;
+}
+.greeting {
+    width: 100vw;
+    height: 3vh;
+    font-size: 3vw;
+    margin-bottom: 0.5em;
+    margin-top: 0;
+}
+.station_button {
+    width: 98vw;
+    height: 22.8vh;
+    font-size: 6vh;
+    padding: 10vh 0vh;
+    border-radius: 0.5rem;
+    border: solid 1px gray;
+}
+#receiving {
+    background: linear-gradient(#FF99CC, #660033);
+}
+#wash {
+    background:linear-gradient(#0066FF, #000066);
+
+}
+#dry {
+    background:linear-gradient(#FF0066, #FF0000);
+
+}
+#folder {
+    background:linear-gradient(#FFFFFF, #666699);
+
+}
+#finish {
+    background:linear-gradient(#FFCC99, #FF6600);
+
+}
+#management {
+    background:linear-gradient(#4c8ac3, #2c5c87);
+}
