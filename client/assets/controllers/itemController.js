@@ -3,6 +3,15 @@ app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookie
 	$scope.items;
 	$scope.item;
 	$scope.id;
+	
+	function getPrice(num){
+		return (num/100).toFixed(2);
+	}
+	
+	function setPrice(num){
+		return num*100;
+	}
+
 	$scope.allItems = function(){
 		itemFactory.all(function(results){
 			$scope.items = results;
@@ -14,6 +23,7 @@ app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookie
 		});
 	}
 	$scope.allItems();
+
 	$scope.addItem = function(){
 		itemFactory.create($scope.newItem, function(results){
 			$scope.success = (results.name + ' was created!');
@@ -21,12 +31,14 @@ app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookie
 		});
 		$location.url('/item_manage');
 	}
+
 	$scope.updateItem = function(){
 		itemFactory.edit($scope.id, $scope.item, function(results){
 			$scope.update = (results.name + ' was updated!');	
 		});
 		$location.url('/item_manage');
 	}
+
 	$scope.deleteItem = function(){
 		itemFactory.delete($routeParams, function(results){
 			$location.url('/item_manage');

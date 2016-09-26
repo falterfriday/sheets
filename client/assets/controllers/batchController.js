@@ -49,6 +49,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	};
 	$scope.selectPerPound = function(){
 		var arr = $scope.items;
+		console.log($scope.queuedPerPound)
 		for (var i=0; i<arr.length; i++){
 			if ($scope.queuedPerPound.index == i){
 				$scope.queuedPerPound.name = arr[i].name;

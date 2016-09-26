@@ -3,7 +3,7 @@
 <div class="input_divs">
 	<label>Per Item <br>
 		<select ng-model="queuedPerItem.index">
-			<option ng-repeat ="item in items | filter:{charge: 'item'} track by $index " value= {{$index}}>{{item.name}}</option>
+			<option ng-repeat ="item in items | filter:{charge: 'item'} track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
 		</select>
 	</label>
 	<!-- <br> -->
@@ -15,7 +15,7 @@
 <div class="input_divs">
 	<label>Per Pound <br>
 		<select ng-model= "queuedPerPound.index">
-			<option ng-repeat="item in items|filter:{charge: 'pound'} track by $index" value= {{$index}}>{{item.name}}</option>
+			<option ng-repeat="item in items|filter:{charge: 'pound'} track by $index" value= {{$index}}>{{item.name}} (per {{item.charge}})</option>
 		</select>
 	</label>
 	<label>Quantity <br>
@@ -33,13 +33,13 @@
 			<th>Subtotal</th>
 		</thead>
 		<tbody>
-				<tr ng-repeat = "part in queue">
-					<td>{{part.name}}</td>
-					<td>{{part.price}}</td>
-					<td>Per {{part.charge}}</td>
-					<td>{{part.quantity}}</td>
-					<td>{{part.subtotal}}</td>
-				</tr>
+			<tr ng-repeat = "part in queue">
+				<td>{{part.name}}</td>
+				<td>{{part.price}}</td>
+				<td>Per {{part.charge}}</td>
+				<td>{{part.quantity}}</td>
+				<td>${{part.subtotal.toFixed(2)}}</td>
+			</tr>
 		</tbody>
 	</table>
 	<form ng-submit = "addBatch()">
@@ -52,7 +52,7 @@
 		<input type="date" name="due_date" ng-model ="newBatch.due_date">
 	</label>
 	<input id="comment" type="text" ng-model="newBatch.instructions"  placeholder="Comments">
-	<input type="submit" name="submit" value="View Summary">
+	<input type="submit" name="submit" value="Create Batch">
 	<!-- we want another button to appear for confirmation -->
 </form>
 <style media="screen">
