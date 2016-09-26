@@ -39,3 +39,14 @@
 #management {
     background:linear-gradient(#CE86F3, #9E40EC);
 }
+#back{
+        position:absolute;
+        right:0;
+        top:0;
+        padding: 0px;
+        width: 60px;
+        height: 60px;
+    }
+h1 {
+    display: inline-block;
+}
