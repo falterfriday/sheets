@@ -6,7 +6,7 @@
             <th>Batch Number</th>
             <th>Company Name</th>
             <th>Due Date</th>
-            <th>Comments</th>
+            <th>Instructions</th>
         </tr>
         <tr ng-repeat ="batch in batches|filter:{status: 'Fold'}" ng-click = "highlight3(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->

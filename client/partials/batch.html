@@ -35,7 +35,7 @@
 		<tbody>
 			<tr ng-repeat = "part in queue">
 				<td>{{part.name}}</td>
-				<td>{{part.price}}</td>
+				<td>${{part.price.toFixed(2)}}</td>
 				<td>Per {{part.charge}}</td>
 				<td>{{part.quantity}}</td>
 				<td>${{part.subtotal.toFixed(2)}}</td>
