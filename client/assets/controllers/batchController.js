@@ -148,7 +148,6 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 		}
 	};
 	$scope.showPrompt = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.prompt()
       .title('Hello!')
       .textContent('Please Enter Your Name')
@@ -160,18 +159,32 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	  .cancel('Cancel');
 
     $mdDialog.show(confirm).then(function(result) {
-      $scope.username = result;
-      $cookies.putObject('user',{username:result});
-    }, function() {
-      $scope.getName();
-    });
-  };
-    $scope.getName = function(){
-        if (!$scope.username || $scope.username === '' ){
-                $scope.showPrompt();
+        if (result === undefined){
+            $scope.getName();
         } else {
-            console.log("Got name");
+            console.log("results = ", result);
+            $scope.username = result;
+            $cookies.putObject('user',{username:result});
+            console.log($cookies.getObject('user'));
+        }
+    },
+        function() {
+            $scope.getName();
+        });
+    };
+    $scope.getName = function(){
+        if ($cookies.getObject('user') === "" || !$cookies.getObject('user')){
+            $scope.showPrompt();
+        } else {
+            $scope.username = $cookies.getObject('user').username;
+            console.log("Name = ", $scope.username);
+            console.log($cookies.getObject('user'));
         }
     };
     $scope.getName();
+
+    $scope.removeName = function(){
+        $cookies.remove('user');
+        $scope.getName();
+    };
 }]);

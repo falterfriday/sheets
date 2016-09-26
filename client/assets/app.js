@@ -1,8 +1,13 @@
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngMaterial', 'ngMessages']);
 app.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('orange');
+    $mdThemingProvider.theme('default')
+	   .primaryPalette('blue', {
+            'default': '400',
+            'hue-1': '200',
+            'hue-2': '600',
+            'hue-3': '800'
+       });
+
 });
 app.config(function($routeProvider){
 $routeProvider

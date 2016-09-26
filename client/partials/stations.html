@@ -1,7 +1,9 @@
 
 <md-toolbar class="md-success">
-    <div class="md-toolbar-tools">
-      <h2 class="md-flex">Hi, {{username}}. Which Staion?</h2>
+    <div class="md-toolbar-tools" layout="row" flex>
+        <h2 flex="80" ng-if="!username"></h2>
+        <h2 flex="80" ng-if="username">Hi, {{username}}. Which Station?</h2>
+        <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()">Change User</md-button>
     </div>
 </md-toolbar>
 
@@ -11,7 +13,7 @@
     </section>
 
     <section layout="row" layout-align="center center">
-        <md-button class="station_button md-primary md-raised" id="wash" href="#/wash">Wash</md-button>
+        <md-button class="station_button md-primary md-raised"   id="wash" href="#/wash">Wash</md-button>
         <md-button class="station_button md-primary md-raised" id="dry" href="#/dry">Dry</md-button>
     </section>
 

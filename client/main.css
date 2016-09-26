@@ -22,15 +22,19 @@
 }
 #wash {
     background:linear-gradient(#0066FF, #000066);
+
 }
 #dry {
     background:linear-gradient(#FF0066, #FF0000);
+
 }
 #folder {
     background:linear-gradient(#FFFFFF, #666699);
+
 }
 #finish {
     background:linear-gradient(#FFCC99, #FF6600);
+
 }
 #management {
     background:linear-gradient(#4c8ac3, #2c5c87);
