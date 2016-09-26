@@ -3,7 +3,7 @@
 <div class="input_divs">
 	<label>Per Item <br>
 		<select ng-model="queuedPerItem.index">
-			<option ng-repeat ="item in items | filter:{charge: 'item'} track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
+			<option ng-repeat ="item in items track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
 		</select>
 	</label>
 	<!-- <br> -->
@@ -12,7 +12,7 @@
 	</label>
 	<button ng-click="selectPerItem()" class="add_button">Add</button><br>
 </div>
-<div class="input_divs">
+<!-- <div class="input_divs">
 	<label>Per Pound <br>
 		<select ng-model= "queuedPerPound.index">
 			<option ng-repeat="item in items|filter:{charge: 'pound'} track by $index" value= {{$index}}>{{item.name}} (per {{item.charge}})</option>
@@ -22,7 +22,7 @@
 		<input type="text" ng-model="queuedPerPound.quantity">
 	</label>
 	<button ng-click="selectPerPound()" class="add_button">Add</button><br>
-</div>
+</div> -->
 	<hr>
 	<table>
 		<thead>
