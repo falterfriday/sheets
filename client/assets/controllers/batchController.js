@@ -1,4 +1,4 @@
-app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams', function($scope, batchFactory, $location, $cookies, $routeParams){
+app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', function($scope, batchFactory, $location, $cookies, $routeParams, $mdDialog){
 	$scope.customers;
 	$scope.items;
 	$scope.batches;
@@ -147,4 +147,31 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 
 		}
 	};
+	$scope.showPrompt = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.prompt()
+      .title('Hello!')
+      .textContent('Please Enter Your Name')
+      .placeholder('')
+      .ariaLabel('Name input')
+      .initialValue('')
+      .targetEvent(ev)
+      .ok('Submit')
+	  .cancel('Cancel');
+
+    $mdDialog.show(confirm).then(function(result) {
+      $scope.username = result;
+      $cookies.putObject('user',{username:result});
+    }, function() {
+      $scope.getName();
+    });
+  };
+    $scope.getName = function(){
+        if (!$scope.username || $scope.username === '' ){
+                $scope.showPrompt();
+        } else {
+            console.log("Got name");
+        }
+    };
+    $scope.getName();
 }]);
