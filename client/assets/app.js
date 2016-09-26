@@ -1,4 +1,9 @@
-var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngMaterial']);
+var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngMaterial', 'ngMessages']);
+app.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('orange');
+});
 app.config(function($routeProvider){
 $routeProvider
 	.when('/', {
