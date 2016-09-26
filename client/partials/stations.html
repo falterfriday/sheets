@@ -1,50 +1,36 @@
-<h1>Where Are You?</h1>
-<button class="button" id="receiving"><a href="#/batch">Receiving</a></button>
+
+<md-toolbar class="md-success">
+    <div class="md-toolbar-tools" layout="row" flex>
+        <h2 flex="80" ng-if="!username"></h2>
+        <h2 flex="80" ng-if="username">Hi, {{username}}. Which Station?</h2>
+        <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()">Change User</md-button>
+    </div>
+</md-toolbar>
+
+<md-content>
+    <section layout="row" layout-align="center center">
+        <md-button class="station_button md-primary md-raised" id="receiving" href="#/batch">New Order</md-button>
+    </section>
+
+    <section layout="row" layout-align="center center">
+        <md-button class="station_button md-primary md-raised"   id="wash" href="#/wash">Wash</md-button>
+        <md-button class="station_button md-primary md-raised" id="dry" href="#/dry">Dry</md-button>
+    </section>
+
+    <section layout="row" layout-align="center center">
+        <md-button class="station_button md-primary md-raised" id="folder" href="#/folder">Folder</md-button>
+        <md-button class="station_button md-primary md-raised" id="finish" href="#/finish">Finish</md-button>
+    </section>
+
+    <section layout="row" layout-align="center center">
+        <md-button class="station_button md-primary md-raised" id="management" href="#/dashboard">Management</md-button>
+    </section>
+</md-content>
+
+
+<!-- <button class="button" id="receiving"><a href="#/batch">Receiving</a></button>
 <button class="button" id="wash"><a href="#/wash">Wash</a></button>
 <button class="button" id="dry"><a href="#/dry">Dry</a></button>
 <button class="button" id="folder"><a href="#/folder">Folder</a></button>
 <button class="button" id="finish"><a href="#/finish">Finish</a></button>
-<button class="button" id="management"><a href="#/dashboard">Management</a></button>
-<style media="screen">
-	* {
-		font-family: Arial;
-	}
-	h1 {
-		font-size: 3.5em;
-		margin-bottom: 0.5em;
-		margin-top: 0;
-	}
-	.button {
-		/*margin-bottom: 2rem;*/
-		width: 49%;
-		height:34.5em;
-		box-shadow: 10px 10px 5px #888888;
-		border-radius: 1em;
-	}
-	a {
-		padding: 2em 0;;
-		height: 5em;
-		text-decoration: none;
-		display: block;
-		color: white;
-		font-size: 6em;
-	}
-	#receiving {
-		background: linear-gradient(#FF99CC, #660033);
-	}
-	#wash {
-		background:linear-gradient(#0066FF, #000066);
-	}
-	#dry {
-		background:linear-gradient(#FF0066, #FF0000);
-	}
-	#folder {
-		background:linear-gradient(#FFFFFF, #666699);
-	}
-	#finish {
-		background:linear-gradient(#FFCC99, #FF6600);
-	}
-	#management {
-		background:linear-gradient(#4c8ac3, #2c5c87);
-	}
-</style>
+<button class="button" id="management"><a href="#/dashboard">Management</a></button> -->

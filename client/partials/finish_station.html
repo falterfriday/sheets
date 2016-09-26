@@ -1,17 +1,21 @@
-<h1>FINISH</h1>
+<div id="header">
+<h1>FINISHING</h1>
+<button><a href="#/">Stations</a></button>
+</div>
     <table>
         <tr>
             <th>Batch Number</th>
             <th>Company Name</th>
-            <th>Types</th>
             <th>Due Date</th>
+            <th>Comments</th>
         </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Finishing'}" ng-click = "highlight(batch)" ng-class="{'highlight': isSelected(batch)}">
+        <tr ng-repeat ="batch in batches|filter:{status: 'Finishing'}" ng-click = "highlight4(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->
             <td>{{batch._id.slice(-5)}}</td>
             <td>{{batch._customer.name}}</td>
-            <td>none</td>
             <td>{{batch.due_date | date: 'M/d/yy'}}</td>
+            <td>{{batch.instructions}}</td>
+            <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
         </tr>
     </table>
     <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class = "finish_button">SEND TO SEND TO COMPLETE</button>

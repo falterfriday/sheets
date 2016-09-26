@@ -1,6 +1,6 @@
 <div class="wrapper">
-	<button class="button" id="new_batch"><a href="#/batch">New Batch/Bago</a></button>
-	<button class="button" id="new_customer"><a href="#/new_customer">New Customer / Bagong Customer</a></button>
+	<button class="button" id="new_batch"><a href="#/batch">New Batch</a></button>
+	<button class="button" id="new_customer"><a href="#/new_customer">New Customer</a></button>
 	<div class="tables">
 		<h2>Processing</h2>
 		<table id="processing_table">
@@ -10,7 +10,7 @@
 					<th>Customer</th>
 					<th>Status</th>
 					<th>Created</th>
-					<th>Due Date</th>
+					<th>Due</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,7 +31,7 @@
 				<tr>
 					<th>Batch</th>
 					<th>Customer</th>
-					<th>Due Date</th>
+					<th>Due</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,6 +46,7 @@
 	<table id="completed_table"></table>
 	<button class="button" id="customer_management"><a href="#/customer_manage">Customer Management</a></button>
 	<button class="button" id="item_management"><a href="#/item_manage">Item Management</a></button>
+	<button class="button" id="stations"><a href="#/">Return to Stations</a></button>
 </div>
 <style media="screen">
 	* {
@@ -64,6 +65,9 @@
 	#new_customer {
 		background:linear-gradient(#0066FF, #000066);
 	}
+	#stations {
+		background:linear-gradient(#0066FF, #000066);
+	}
 	h2 {
 		text-align: left;
 		margin-bottom: 0em;
@@ -75,17 +79,19 @@
 		font-size: 5em;
 	}
 	.tables {
-		/*border: solid black 1px;*/
+		border-right: solid black 1px;
+		border-left: solid black 1px;
+		border-bottom: solid black 1px;
 		display: inline-block;
 		width: 49%;
-		height: 49em;
+		height: 26em;
 		margin-bottom: 0.5em;
 	}
 	table {
     border-collapse: collapse;
     width: 100%;
 		border: solid gray 1px;
-		color: white;
+		color: black;
 	}
 	td, th {
 		border: 1px solid #dddddd;
