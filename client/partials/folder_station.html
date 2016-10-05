@@ -1,12 +1,12 @@
 <div id="header">
 <h1>FOLDER</h1>
-<button><a href="#/">Stations</a></button>
+<a href="#/"><img src="../assets/images/icon_back.png" alt="Back button" id="back"></a>
 </div>    <table>
         <tr>
             <th>Batch Number</th>
             <th>Company Name</th>
             <th>Due Date</th>
-            <th>Comments</th>
+            <th>Instructions</th>
         </tr>
         <tr ng-repeat ="batch in batches|filter:{status: 'Fold'}" ng-click = "highlight3(batch)" ng-class="{'highlight': isSelected(batch)}">
             <!-- ng-repeat  -->
@@ -34,6 +34,7 @@
     table {
         border-collapse: collapse;
         width: 100%;
+        overflow: auto;
     }
     th, td {
         padding: 14px;

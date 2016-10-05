@@ -1,9 +1,9 @@
-<button><a href="#/">Stations</a></button>
 <h1>New Batch</h1>
+<a href="#/dashboard"><img src="../assets/images/icon_back.png" alt="Back button" id="back"></a>
 <div class="input_divs">
 	<label>Per Item <br>
 		<select ng-model="queuedPerItem.index">
-			<option ng-repeat ="item in items | filter:{charge: 'item'} track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
+			<option ng-repeat ="item in items track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
 		</select>
 	</label>
 	<!-- <br> -->
@@ -12,7 +12,7 @@
 	</label>
 	<button ng-click="selectPerItem()" class="add_button">Add</button><br>
 </div>
-<div class="input_divs">
+<!-- <div class="input_divs">
 	<label>Per Pound <br>
 		<select ng-model= "queuedPerPound.index">
 			<option ng-repeat="item in items|filter:{charge: 'pound'} track by $index" value= {{$index}}>{{item.name}} (per {{item.charge}})</option>
@@ -22,7 +22,7 @@
 		<input type="text" ng-model="queuedPerPound.quantity">
 	</label>
 	<button ng-click="selectPerPound()" class="add_button">Add</button><br>
-</div>
+</div> -->
 	<hr>
 	<table>
 		<thead>
@@ -35,7 +35,7 @@
 		<tbody>
 			<tr ng-repeat = "part in queue">
 				<td>{{part.name}}</td>
-				<td>{{part.price}}</td>
+				<td>${{part.price.toFixed(2)}}</td>
 				<td>Per {{part.charge}}</td>
 				<td>{{part.quantity}}</td>
 				<td>${{part.subtotal.toFixed(2)}}</td>
@@ -98,7 +98,7 @@
 	.add_button {
 		vertical-align: bottom;
 		width: 35.2%;
-		background:linear-gradient(#0066FF, #000066);
+		background:linear-gradient(#EA4928, #EC4538  );
 		color: white;
 		padding: 1.0px 1.0px;
 		margin:0 0 0 1em;
@@ -135,7 +135,7 @@
 	}
 	input[type=submit] {
 		width: 100%;
-		background:linear-gradient(lightgreen, darkgreen);
+		background:linear-gradient(#00BCD4, #B3DFAA);
 		color: white;
 		padding: 1.0px 1.0px;
 		margin: 8px 0;

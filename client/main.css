@@ -18,24 +18,35 @@
     border: solid 1px gray;
 }
 #receiving {
-    background: linear-gradient(#FF99CC, #660033);
+    background: linear-gradient(#00BCD4, #B3DFAA);
 }
 #wash {
-    background:linear-gradient(#0066FF, #000066);
+    background:linear-gradient(#17B9F2, #3B9BEF);
 
 }
 #dry {
-    background:linear-gradient(#FF0066, #FF0000);
+    background:linear-gradient(#17B9F2, #3B9BEF);
 
 }
 #folder {
-    background:linear-gradient(#FFFFFF, #666699);
+    background:linear-gradient(#17B9F2, #3B9BEF);
 
 }
 #finish {
-    background:linear-gradient(#FFCC99, #FF6600);
+    background:linear-gradient(#17B9F2, #3B9BEF);
 
 }
 #management {
-    background:linear-gradient(#4c8ac3, #2c5c87);
+    background:linear-gradient(#CE86F3, #9E40EC);
+}
+#back{
+        position:absolute;
+        right:0;
+        top:0;
+        padding: 0px;
+        width: 60px;
+        height: 60px;
+    }
+h1 {
+    display: inline-block;
 }

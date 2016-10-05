@@ -1,5 +1,5 @@
 <h1>Customers</h1>
-<a href="#/dashboard"><img src="../assets/images/icon_back.png" alt="Back button"></a>
+<a href="#/dashboard"><img src="../assets/images/icon_back.png" alt="Back button" id="back"></a>
 	<input type="text" ng-model="search" placeholder="Search">
 	<button id="add_customer"><a href="#/new_customer">Add Customer</a></button>
 	<table>
@@ -88,4 +88,12 @@
 		top:0;
 		padding:1%;
 		}
+	#back{
+		position:absolute;
+		right:0;
+		top:0;
+		padding: 0px;
+		width: 60px;
+		height: 60px;
+	}
 </style>
