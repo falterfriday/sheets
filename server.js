@@ -1,7 +1,3 @@
-//Yarr!! This be the DEV branch
-//Warning to all travelers...
-//Here be Dragons
-
 /* jshint esversion: 6 */
 var mongoose=require('mongoose'),
 express=require('express'),

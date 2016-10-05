@@ -19,14 +19,23 @@
     <script src="./assets/factories/customerFactory.js"></script>
     <script src="./assets/factories/itemFactory.js"></script>
     <script src="./assets/factories/credentialFactory.js"></script>
+    <script src="./assets/controllers/userController.js"></script>
     <script src="./assets/controllers/batchController.js"></script>
     <script src="./assets/controllers/customerController.js"></script>
     <script src="./assets/controllers/itemController.js"></script>
     <script src="./assets/controllers/credentialController.js"></script>
     <link rel="stylesheet" href="./main.css" media="screen">
 <body>
-
-<div ng-view="">
-</div>
+    <div class="wrapper" ng-cloak>
+        <md-toolbar class="md-success" ng-controller="userController">
+            <div class="md-toolbar-tools" layout="row" flex>
+                <h2 flex="80" ng-if="!username"></h2>
+                <h2 flex="80" ng-if="username">Hi, {{username}}. Which Station?</h2>
+                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()" ng-controller="batchController">Change User</md-button>
+            </div>
+        </md-toolbar>
+        <div ng-view="">
+        </div>
+    </div>
 </body>
 </html>
