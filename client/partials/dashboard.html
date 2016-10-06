@@ -1,4 +1,3 @@
-<div class="wrapper">
 	<button class="button" id="new_batch"><a href="#/batch">New Batch</a></button>
 	<button class="button" id="new_customer"><a href="#/new_customer">New Customer</a></button>
 	<div class="tables">
@@ -43,11 +42,9 @@
 			</tbody>
 		</table>
 	</div>
-	<table id="completed_table"></table>
-	<button class="button" id="customer_management"><a href="#/customer_manage">Customer Management</a></button>
-	<button class="button" id="item_management"><a href="#/item_manage">Item Management</a></button>
-	<button class="button" id="stations"><a href="#/">Stations</a></button>
-</div>
+	<div class="md-padding inset" layout="row" layout-align="center end" md-swipe-up="showBottomSheet()" ng-cloak>
+		<md-button flex="100" class="md-primary md-raised" ng-click="showBottomSheet()">Management Menu</md-button>
+	</div>
 <style media="screen">
 	* {
 		font-family: arial;
