@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./main.css" media="screen">
 <body>
     <div class="wrapper" ng-cloak>
+<!-- ____________________________PERSISTENT STATUS BAR____________________________ -->
         <md-toolbar class="md-success" ng-controller="userController">
             <div class="md-toolbar-tools" layout="row" flex>
                 <h2 flex="80" ng-if="!username"></h2>
@@ -34,6 +35,7 @@
                 <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()" ng-controller="batchController">Change User</md-button>
             </div>
         </md-toolbar>
+<!-- _____________________________________________________________________________ -->
         <div ng-view="">
         </div>
     </div>
