@@ -1,7 +1,7 @@
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngMaterial', 'ngMessages']);
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-	   .primaryPalette('blue', {
+	   .primaryPalette('green', {
             'default': '400',
             'hue-1': '200',
             'hue-2': '600',
