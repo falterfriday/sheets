@@ -1,4 +1,4 @@
-app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', function($scope, batchFactory, $location, $cookies, $routeParams, $mdDialog){
+app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', '$mdBottomSheet', function($scope, batchFactory, $location, $cookies, $routeParams, $mdDialog, $mdBottomSheet){
 	$scope.customers;
 	$scope.items;
 	$scope.batches;
@@ -193,5 +193,15 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 			$scope.hide_val6 = false;
 
 		}
+	};
+//---------------------BOTTOM SHEET---------------------
+	$scope.showBottomSheet = function() {
+		console.log("bottom SHEET!");
+		$scope.alert = '';
+		$mdBottomSheet.show({
+			templateUrl: '/partials/bottom-sheet-template.html',
+		}).then(function(clickedItem) {
+		$scope.alert = 'yo dawg!';
+		});
 	};
 }]);
