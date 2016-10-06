@@ -18,7 +18,7 @@
             <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
         </tr>
     </table>
-    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">PUT IN WASHER</button>
+    <md-button class="station_button md-primary md-hue-1 md-raised" ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">PUT IN WASHER</md-button>
     <h2 id="wash_list">Washed and Ready for the Dryer</h2>
     <table>
         <tr>
@@ -33,10 +33,11 @@
             <td>{{batch._id.slice(batch._id.length-5)}}</td>
             <td>{{batch._customer.name}}</td>
             <td>{{batch.due_date | date: 'M/d/yy'}}</td>
-            <td><button ng-click="deselect(batch)" ng-hide = "hide_val5">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val6">Select</button></td>
+            <td><button ng-click="deselect(batch)" ng-hide = "hide_val5">Clear</button>
+            <button ng-click="highlight(batch)" ng-hide = "hide_val6">Select</button></td>
         </tr>
     </table>
-    <button ng-click="updateStatus(queued_item)" ng-hide="hide_val2" class = "wash_button">SEND TO DRYER</button>
+    <md-button class="station_button md-primary md-hue-1 md-raised" ng-click="updateStatus(queued_item)" ng-hide="hide_val2" class = "wash_button">SEND TO DRYER</md-button>
     <!-- ng-click in the div-->
 <style>
     * {
@@ -93,6 +94,6 @@
     background: linear-gradient(to right, #FF197E ,#FFF819); /* Standard syntax (must be last) */
     }
    .highlight{
-        background-color: #19FFC5;
+        background-color: #6fe4ed;
     }
 </style>

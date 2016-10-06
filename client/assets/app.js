@@ -1,11 +1,11 @@
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngMaterial', 'ngMessages']);
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-	   .primaryPalette('green', {
+	   .primaryPalette('cyan', {
             'default': '400',
-            'hue-1': '200',
+            'hue-1': '900',
             'hue-2': '600',
-            'hue-3': '800'
+            'hue-3': '300',
        });
 
 });
