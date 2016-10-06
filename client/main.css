@@ -16,9 +16,33 @@
     font-size: 6vh;
     padding: 10vh 0vh;
     border-radius: 0.5rem;
-    border: solid 1px gray;
+    border: solid 2px gray;
 }
-#receiving {
+.bigbatch_button {
+    width: 98vw;
+    height: 22.8vh;
+    font-size: 6vh;
+    padding: 10vh 0vh;
+    border-radius: 0.5rem;
+    border: solid 2px gray;
+}
+.management_button {
+    width: 98vw;
+    height: 22.8vh;
+    font-size: 6vh;
+    padding: 10vh 0vh;
+    border-radius: 0.5rem;
+    border: solid 2px gray;
+}
+.submit_batch {
+    width: 98vw;
+    height: 22.8vh;
+    font-size: 6vh;
+    padding: 10vh 0vh;
+    border-radius: 0.5rem;
+    border: solid 2px gray;
+}
+/*#receiving {
     background: linear-gradient(#00BCD4, #B3DFAA);
 }
 #wash {
@@ -39,7 +63,7 @@
 }
 #management {
     background:linear-gradient(#CE86F3, #9E40EC);
-}
+}*/
 #back{
         position:absolute;
         right:0;
