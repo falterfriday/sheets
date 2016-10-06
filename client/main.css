@@ -22,6 +22,7 @@
     width: 98vw;
     height: 22.8vh;
     font-size: 6vh;
+    font-color: white;
     padding: 10vh 0vh;
     border-radius: 0.5rem;
     border: solid 2px gray;
@@ -41,6 +42,18 @@
     padding: 10vh 0vh;
     border-radius: 0.5rem;
     border: solid 2px gray;
+}
+.page_action{
+    width: 100%;
+    background-color: #f44d1a;
+    color: white;
+    padding: 1.0px 1.0px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    height:2em;
+    font-size:4em;
 }
 /*#receiving {
     background: linear-gradient(#00BCD4, #B3DFAA);
