@@ -34,6 +34,10 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	$scope.getCustomers();
 	$scope.getItems();
 
+	$scope.home = function(){
+		$location.url('/');
+	}
+
 	$scope.selectPerItem = function(){
 		var arr = $scope.items;
 		for (var i=0; i<arr.length; i++){

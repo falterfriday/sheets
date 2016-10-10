@@ -7,10 +7,10 @@
 	<label>Billing Address: <input type="text" ng-model="customer.address"></label>
 	<label>Address Line 2: <input type="text" ng-model="customer.address2"></label>
 	<label>Address Line 3: <input type="text" ng-model="customer.address3"></label>
-	<input type="submit" value="Update Customer">
+	<input class="page_action" type="submit" value="Update Customer">
 </form>
-<button ng-click = "deleteCustomer()">Delete Customer</button>
-<button><a href="#/customer_manage">Cancel</a></button>
+<md-button class="customer_button md-primary md-hue-1 md-raised" ng-click = "deleteCustomer()">Delete Customer</md-button>
+<md-button class="customer_button md-primary md-hue-1 md-raised"><a href="#/customer_manage">Cancel</a></md-button>
 <style>
     * {
         font-family: arial;
@@ -32,7 +32,7 @@
         border-radius: 5px;
         font-size: 1.35em;
     }
-    input[type=submit] {
+    /*input[type=submit] {
       width: 100%;
       background:linear-gradient(#0066FF, #000066);
       color: white;
@@ -43,7 +43,7 @@
       cursor: pointer;
       height:2em;
       font-size:4em;
-    }
+    }*/
     button {
         background-color: red;
         color: white;

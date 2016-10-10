@@ -1,7 +1,7 @@
-	<button class="button" id="new_batch"><a href="#/batch">New Batch</a></button>
-	<button class="button" id="new_customer"><a href="#/new_customer">New Customer</a></button>
+	<md-button class="dash_button md-primary md-raised"><a href="#/batch">New Batch</a></md-button>
+	<md-button class="dash_button md-primary md-hue-1 md-raised"><a href="#/new_customer">New Customer</a></md-button>
+	<h2>Processing</h2>
 	<div class="tables">
-		<h2>Processing</h2>
 		<table id="processing_table">
 			<thead>
 				<tr>
@@ -23,8 +23,8 @@
 			</tbody>
 		</table>
 	</div>
+	<h2>Completed</h2>
 	<div class="tables">
-		<h2>Completed</h2>
 		<table id="completed_table">
 			<thead>
 				<tr>
@@ -43,7 +43,7 @@
 		</table>
 	</div>
 	<div class="md-padding inset" layout="row" layout-align="center end" md-swipe-up="showBottomSheet()" ng-cloak>
-		<md-button flex="100" class="md-primary md-raised" ng-click="showBottomSheet()">Management Menu</md-button>
+		<md-button class="menu_button md-primary md-raised md-warn" ng-click="showBottomSheet()">MENU</md-button>
 	</div>
 <style media="screen">
 	* {
@@ -56,12 +56,6 @@
 		box-shadow: 10px 10px 5px #888888;
 		border-radius: 1em;
 	}
-	#new_batch {
-		background: linear-gradient(#00BCD4, #C0F4ED);
-	}
-	#new_customer {
-		background:linear-gradient(#8627B8, #DDB5F2);
-	}
 	#stations {
 		background:linear-gradient(#C2111B, #F59A9F);
 	}
@@ -69,19 +63,21 @@
 		text-align: left;
 		margin-bottom: 0em;
 	}
-	a {
+	#home{
+		font-size: 14px;
+	}
+	button a {
 		text-decoration: none;
 		display: block;
 		color: white;
 		font-size: 5em;
 	}
 	.tables {
-		border-right: solid black 1px;
-		border-left: solid black 1px;
-		border-bottom: solid black 1px;
+		border: solid black 1px;
 		display: inline-block;
-		width: 49%;
-		height: 26em;
+		margin-left: 1.5em;
+		width: 95%;
+		height: 22em;
 		margin-bottom: 0.5em;
 		overflow: auto;
 	}
@@ -96,21 +92,24 @@
 		text-align: left;
 		padding: 8px;
 	}
-	tr:nth-child(even) {
+	/*tr:nth-child(even) {
 		background-color: #dddddd;
-	}
+	}*/
 	#processing_table th {
 		border: none;
-		background: linear-gradient(#2ECAD0, #91F0F4);
+		background-color: #81efed;
 	}
 	#completed_table th {
 		border: none;
-		background: linear-gradient(#F1EB2C, #E9E576);
+		background-color: #81efed;
 	}
 	#customer_management {
 		background: linear-gradient(#F77114, #EFAC7D);
 	}
 	#item_management {
 		background: linear-gradient(#178A11, #91E88D);
+	}
+	.md-padding{
+		margin: 0px;
 	}
 </style>

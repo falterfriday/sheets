@@ -55,6 +55,24 @@
     height:2em;
     font-size:4em;
 }
+.dash_button {
+    width: 98%;
+    height: 150px;
+    border: solid 2px gray;
+}
+.customer_button{
+    width: 48%;
+    height: 150px;
+    border: solid 2px gray;
+    font-size: 3vh;
+}
+.menu_button {
+    width: 75px;
+    height: 70px;
+    border: solid 2px gray;
+    margin: 0px;
+}
+
 /*#receiving {
     background: linear-gradient(#00BCD4, #B3DFAA);
 }
