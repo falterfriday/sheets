@@ -18,7 +18,7 @@
             <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
         </tr>
     </table>
-    <button ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class = "finish_button">SEND TO SEND TO COMPLETE</button>
+    <md-button class="station_button md-primary md-hue-2 md-raised" ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class = "finish_button">SEND TO COMPLETE</md-button>
     <!-- ng-click in the div-->
 <style>
     * {
