@@ -1,6 +1,5 @@
 <h1>New Customer</h1>
 <p>{{success}}</p>
-<a href="#/customer_manage"><img src="../assets/images/icon_back.png" alt="Back button"></a>
 <form ng-submit='addCustomer()'>
 
   <label>Business Name: <input type="text" ng-model="newCustomer.name"></label><br>
@@ -25,7 +24,7 @@
 	}
 	input[type=text] {
 	  width: 100%;
-	  padding: 1em 1.67px;
+	  padding: .5em 1px;
 	  margin: 0.4em 0;
 	  box-sizing: border-box;
 	  display: block;
@@ -34,7 +33,7 @@
 	}
 	input[type=submit]{
 	  width: 100%;
-	  background:linear-gradient(#0066FF, #000066);
+	  background:linear-gradient(#2a8484, #2a8484);
 	  color: white;
 	  padding: 1.0px 1.0px;
 	  margin: 8px 0;
