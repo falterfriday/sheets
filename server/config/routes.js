@@ -1,6 +1,7 @@
 var items      = require('../controllers/items.js'),
     batches    = require('../controllers/batches.js'),
-    customers  = require('../controllers/customers.js');
+    customers  = require('../controllers/customers.js'),
+    admins	   = require('../controllers/admins.js');
 
 module.exports = function(app){
 	app.post('/create_customer', customers.createCustomer);
@@ -14,5 +15,10 @@ module.exports = function(app){
 	app.post('/add_batch', batches.addBatch);
 	app.get('/get_batches', batches.getBatches);
 	app.post('/update_status', batches.updateStatus);
+	app.post('/createAdmin', admins.createAdmin);
+	app.post('/destroyAdmin', admins.deleteAdmin);
+	app.get('/getAdmins', admins.getAdmin);
+	app.post('/checkAdmin', admins.verifyAdmin);
+	app.post('/checkMaster', admins.verifyMaster);
 }
 
