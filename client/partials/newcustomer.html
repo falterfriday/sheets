@@ -1,64 +1,60 @@
-<h1>New Customer</h1>
+<div layout="row" class="padding">
+    <h1>New Customer</h1>
+</div>
 <p>{{success}}</p>
-<form ng-submit='addCustomer()'>
-
-  <label>Business Name: <input type="text" ng-model="newCustomer.name"></label><br>
-  <label>Contact Name: <input type="text" ng-model="newCustomer.contact_name"></label><br>
-  <label>Phone: <input type="text" ng-model="newCustomer.phone"></label><br>
-  <label>Email: <input type="text" ng-model="newCustomer.email"></label><br>
-  <label>Billing Address: <input type="text" ng-model="newCustomer.address"></label><br>
-  <label>City/State:<input type="text" ng-model="newCustomer.address2"></label><br>
-  <label>Zip Code:<input type="text" ng-model="newCustomer.address3"></label><br>
-  <label>Weight-price: <input type="text" ng-model="newCustomer.weight"></label>
-  <label>Comments: <input type="text" ng-model="newCustomer.comments"></label>
-  <input type="submit" value="Create Customer">
-</form>
+<div layout="column" layout-align="center" class="padding">
+    <form ng-submit='addCustomer()'>
+        <md-input-container class="md-block">
+            <label>Business Name:</label>
+            <input type="text" ng-model="newCustomer.name">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Contact Name:</label>
+            <input type="text" ng-model="newCustomer.contact_name">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Phone:</label>
+            <input type="text" ng-model="newCustomer.phone">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Email:</label>
+            <input type="text" ng-model="newCustomer.email">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Billing Address: </label>
+            <input type="text" ng-model="newCustomer.address">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>City/State:</label>
+            <input type="text" ng-model="newCustomer.address2">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Zip Code:</label>
+            <input type="text" ng-model="newCustomer.address3">
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+            <label>Weight-price: </label>
+            <input type="text" ng-model="newCustomer.weight">
+        </md-input-container>
+        <md-input-container class="md-block margin" flex>
+            <label>Comments: </label>
+            <input type="text" ng-model="newCustomer.comments"></label>
+        </md-input-container>
+        <md-input-container class="md-block margin" flex>
+            <input id="create" class="md-button md-primary md-raised" type="submit" value="Create Customer">
+        </md-input-container>
+    </form>
+</div>
 <style media="screen">
-	* {
-	  font-family: arial;
-	}
 	h1 {
 		font-size: 3.5em;
-		margin-bottom: 0em;
+		margin-bottom: 5vh;
 		margin-top: 0;
 	}
-	input[type=text] {
-	  width: 100%;
-	  padding: .5em 1px;
-	  margin: 0.4em 0;
-	  box-sizing: border-box;
-	  display: block;
-	  border-radius: 5px;
-	  font-size: 1.35em;
-	}
-	input[type=submit]{
-	  width: 100%;
-	  background:linear-gradient(#2a8484, #2a8484);
-	  color: white;
-	  padding: 1.0px 1.0px;
-	  margin: 8px 0;
-	  border: none;
-	  border-radius: 0.3em;
-	  cursor: pointer;
-	  height:2em;
-	  font-size:4em;
-	}
-
-	button {
-	  background-color: red;
-	  color: white;
-	  border-radius: 5px;
-	  font-size: 1.0em;
-	}
-
-	img{	
-      width: 8%;
-      height:auto;
-      position:absolute;
-      right:0;
-      top:0;
-      padding:1%;
-	}
-
-
+    form {
+        height: 20vh;
+    }
+    .margin {
+        margin-bottom: 10vh;
+    }
 </style>
