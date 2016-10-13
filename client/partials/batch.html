@@ -1,17 +1,34 @@
-<h1>New Batch</h1>
-<div class="input_divs">
-	<label>Per Item <br>
-		<select ng-model="queuedPerItem.index">
-			<option ng-repeat ="item in items track by $index " value= {{$index}}>{{item.name}} (per  {{item.charge}})</option>
-		</select>
-	</label>
-	<!-- <br> -->
-	<label>Quantity <br>
-		<input type="text" ng-model="queuedPerItem.quantity">
-	</label>
-	<button ng-click="selectPerItem()" class="add_button">Add</button><br>
+<div class="padding">	
+	<h1>New Batch</h1>
 </div>
-	<hr>
+<div layout="row" class="padding">
+	<md-input-container class="md-block" flex>
+		<label>Per Item</label>
+		<md-select ng-model="queuedPerItem.index">
+			<md-option ng-repeat ="item in items track by $index" ng-value="{{$index}}"> {{item.name}} (per {{item.charge}} )</md-option>
+		</md-select>
+	</md-input-container>
+	<md-input-container >
+		<label>Quantity</label>
+		<input ng-model="queuedPerItem.quantity" required>
+	</md-input-container>
+</div>
+<div layout="row" class="padding">
+	<md-input-container class="md-block" flex>
+		<label>Per Item</label>
+		<md-select ng-model="queuedPerItem.index">
+			<md-option ng-repeat ="item in items track by $index" ng-value="{{$index}}"> {{item.name}} (per {{item.charge}} )</md-option>
+		</md-select>
+	</md-input-container>
+	<md-input-container >
+		<label>Quantity</label>
+		<input ng-model="queuedPerItem.quantity" required>
+	</md-input-container>
+</div>
+<div layout="row" layout-align="center center">
+	<md-button class="md-primary md-raised md-hue-1" ng-click="selectPerItem()" flex="100">Add</md-button>
+</div>
+<div class="tables" layout="row" layout-align="center center" flex>
 	<table>
 		<thead>
 			<th>Item</th>
@@ -30,103 +47,65 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div>
 	<form ng-submit = "addBatch()">
-	<label>Customer <br>
-		<select ng-model="newBatch._customer">
-			<option ng-repeat= "customer in customers" value ="{{customer._id}}">{{customer.name}}</option>
-		</select><br>
-	</label>
-	<label id="date">Due Date <br>
-		<input type="date" name="due_date" ng-model ="newBatch.due_date">
-	</label>
-	<input id="comment" type="text" ng-model="newBatch.instructions"  placeholder="Comments">
-	<input class="page_action" type="submit" name="submit" value="Create Batch">
-	<!-- we want another button to appear for confirmation -->
-</form>
+		<div layout="row" class="padding">
+			<md-input-container class="md-block" flex>
+				<label>Select Customer</label>
+				<md-select ng-model="newBatch._customer">
+					<md-option ng-repeat= "customer in customers" value ="{{customer._id}}">{{customer.name}}</md-option>
+				</md-select>
+			</md-input-container>
+			<md-input-container >
+				<label>Due Date</label>
+				<md-datepicker name="due_date" ng-model ="newBatch.due_date">
+			</md-input-container>
+		</div>
+		<div layout="row" class="padding">
+			<md-input-container class="md-block" flex>
+				<label>Comments</label>
+				<input id="comment" type="text" ng-model="newBatch.instructions">
+			</md-input-container>
+		</div>
+		<div layout="row" layout-align="center center">
+			<input id="create_batch" class="md-button md-primary md-raised" flex="100" type="submit" name="submit" value="Create Batch">
+		</div>
+	</form>
+</div>
+
 <style media="screen">
-	* {
-		font-family: Arial;
-	}
-	h1 {
-		font-size: 3.5em;
-		margin-bottom: 0.5em;
-		margin-top: 0;
-	}
-	label {
+	.tables {
+		border: solid black 1px;
 		display: inline-block;
-		vertical-align: bottom;
+		margin-left: 0.5em;
+		width: 98.2%;
+		height: 53vh;
+		margin-bottom: 0.5em;
+		overflow: auto;
 	}
-	select {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		border-radius: 0;
-		width: 10.93em;
-		height: 1.94em;
-		margin: 0 1em 0 0;
-		font-size: 2.5em;
+	.tables table {
+	    border-collapse: collapse;
+	    width: 100%;
+		border: solid gray 1px;
+		color: black;
 	}
-	input[type="date"] {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		border-radius: 0;
-		width: 10.93em;
-		height: 1.94em;
-		margin: 0 0 0 0;
-		font-size: 2.5em;
+	.tables td, .tables th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
 	}
-	input[type="text"] {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		width: 2.5em;
-		height: 1.8em;
-		font-size: 2.5em;
-	}
-	.add_button {
-		vertical-align: bottom;
-		width: 35.2%;
-		background:linear-gradient(#EA4928, #EC4538  );
-		color: white;
-		padding: 1.0px 1.0px;
-		margin:0 0 0 1em;
+	.tables th {
 		border: none;
-		border-radius: 0.3em;
-		cursor: pointer;
-		height:2.43em;
-		font-size:2em;
+		background-color: #81efed;
 	}
-	table {
-    border-collapse: collapse;
-    width: 100%;
+	#create_batch {
+		height: 8vh;
+		color: white;
+		font-size: 3em;
+		border: solid 2px gray;
 	}
-	td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-		font-size: 2.5em;
-	}
-
-	tbody, thead {
-		display: block;
-	}
-	tbody {
-		height: 36.6em;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	tr:nth-child(even) {
-	    background-color: #dddddd;
-	}
-	tbody td, thead th {
-    width: 20.4%;  /* Optional */
-	}
-
-	#date {
-		margin: 0 0 0 2em;
-	}
-	#comment {
-		width: 99%;
-		margin-top: 0.5em;
+	.padding {
+		padding: 0 1vw;
 	}
 </style>
