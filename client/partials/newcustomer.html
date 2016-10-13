@@ -1,4 +1,4 @@
-<div layout="row" class="padding">
+<div class="padding" layout="row">
     <h1>New Customer</h1>
 </div>
 <p>{{success}}</p>
@@ -40,9 +40,11 @@
             <label>Comments: </label>
             <input type="text" ng-model="newCustomer.comments"></label>
         </md-input-container>
-        <md-input-container class="md-block margin" flex>
-            <input id="create" class="md-button md-primary md-raised" type="submit" value="Create Customer">
-        </md-input-container>
+        <md-content>
+            <section layout="row" layout-align="center">
+                <input id="create" class="md-button md-primary md-raised" type="submit" value="Create Customer" flex>
+            </section>
+        </md-content>
     </form>
 </div>
 <style media="screen">
@@ -55,6 +57,6 @@
         height: 20vh;
     }
     .margin {
-        margin-bottom: 10vh;
+        margin-bottom: 22vh;
     }
 </style>

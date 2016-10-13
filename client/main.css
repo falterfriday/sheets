@@ -43,28 +43,10 @@
     border-radius: 0.5rem;
     border: solid 2px gray;
 }
-.page_action{
-    width: 100%;
-    background-color: #f44d1a;
-    color: white;
-    padding: 1.0px 1.0px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 0.3em;
-    cursor: pointer;
-    height:2em;
-    font-size:4em;
-}
 .dash_button {
     width: 98%;
     height: 150px;
     border: solid 2px gray;
-}
-.customer_button{
-    width: 48%;
-    height: 150px;
-    border: solid 2px gray;
-    font-size: 3vh;
 }
 .menu_button {
     width: 75px;
@@ -83,4 +65,8 @@ h1 {
     color: white;
     font-size: 3em;
     border: solid 2px gray;
+}
+#update_customer {
+    height: 8vh;
+    font-size: 3vh;
 }

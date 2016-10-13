@@ -1,55 +1,49 @@
-<h1>Edit Customer</h1>
-<form ng-submit="updateCustomer()" ng-controller='customerController'  class = ".edit_customer">
-	<label>Business Name: <input type="text" ng-model="customer.name" ></label>
-	<label>Contact Name: <input type="text" ng-model="customer.contact_name"></label>
-	<label>Phone: <input type="text" ng-model="customer.phone"></label>
-	<label>Email: <input type="text" ng-model="customer.email" ></label>
-	<label>Billing Address: <input type="text" ng-model="customer.address"></label>
-	<label>Address Line 2: <input type="text" ng-model="customer.address2"></label>
-	<label>Address Line 3: <input type="text" ng-model="customer.address3"></label>
-	<input class="page_action" type="submit" value="Update Customer">
-</form>
-<md-button class="customer_button md-primary md-hue-1 md-raised" ng-click = "deleteCustomer()">Delete Customer</md-button>
-<md-button class="customer_button md-primary md-hue-1 md-raised"><a href="#/customer_manage">Cancel</a></md-button>
-<style>
-    * {
-        font-family: arial;
-    }
-    .edit_customer {
-        width: 100%;
-        padding: 1em 1.25px;
-        border: none;
-        border-radius: 4px;
-        background-color: #f1f1f1;
-        height:1.67em;
-    }
-    input[type=text] {
-        width: 100%;
-        padding: 1em 1.67px;
-        margin: 0.67em 0;
-        box-sizing: border-box;
-        display: block;
-        border-radius: 5px;
-        font-size: 1.35em;
-    }
-    /*input[type=submit] {
-      width: 100%;
-      background:linear-gradient(#0066FF, #000066);
-      color: white;
-      padding: 1.0px 1.0px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 0.3em;
-      cursor: pointer;
-      height:2em;
-      font-size:4em;
-    }*/
-    button {
-        background-color: red;
-        color: white;
-        border-radius: 5px;
-        height: 2em;
-        font-size: 1.0em;
-        border-radius: 0.3em;
+<div class="padding" layout="row">
+    <h1>Edit Customer</h1>
+</div>
+<md-content class="padding" layout="column" layout-align="center">
+    <form ng-submit="updateCustomer()" ng-controller='customerController' class="edit_customer">
+        <md-input-container class="md-block">
+            <label>Business Name: </label>
+            <input type="text" ng-model="customer.name" >
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Contact Name: </label>
+            <input type="text" ng-model="customer.contact_name">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Phone: </label>
+            <input type="text" ng-model="customer.phone">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Email: </label>
+            <input type="text" ng-model="customer.email" >
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Billing Address: </label>
+            <input type="text" ng-model="customer.address">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Address Line 2: </label>
+            <input type="text" ng-model="customer.address2">
+        </md-input-container>
+        <md-input-container class="md-block margin">
+            <label>Address Line 3: </label>
+            <input type="text" ng-model="customer.address3">
+        </md-input-container>
+        <md-content>
+            <section layout="row" layout-align="center">
+                <input id="update_customer" class="md-button md-primary md-raised md-hue-1"  type="submit" value="Update Customer" flex>
+            </section>
+        </md-content>
+    </form>
+</md-content>
+<md-content class="padding" layout="row" layout-align="center" flex>
+    <md-button class="customer_button md-primary md-raised md-warn" ng-click = "deleteCustomer()" flex="50">Delete Customer</md-button>
+    <md-button class="customer_button md-primary md-hue-1 md-raised" href="#/customer_manage" flex="50">Cancel</md-button>
+</md-content>
+<style media="screen">
+    .margin {
+        margin-bottom: 35vh;
     }
 </style>
