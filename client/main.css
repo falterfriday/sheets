@@ -5,7 +5,7 @@
 .wrapper {
     height: 100vh;
     width: 100vw;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 .md-toolbar-tools h2 {
     color: white;
@@ -74,4 +74,13 @@
 }
 h1 {
     display: inline-block;
+}
+.padding {
+    padding: 0 1vw;
+}
+#create {
+    height: 8vh;
+    color: white;
+    font-size: 3em;
+    border: solid 2px gray;
 }
