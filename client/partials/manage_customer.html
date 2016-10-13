@@ -1,7 +1,6 @@
+<button id="add_customer"><a href="#/new_customer">Add Customer</a></button><br>
 <h1>Customers</h1>
-<a href="#/dashboard"><img src="../assets/images/icon_back.png" alt="Back button" id="back"></a>
-	<input type="text" ng-model="search" placeholder="Search">
-	<button id="add_customer"><a href="#/new_customer">Add Customer</a></button>
+<input type="text" ng-model="search" placeholder="Search">
 	<table>
 		<thead>
 			<th id="thead_left">Company Name</th>
@@ -24,12 +23,15 @@
 	}
 	h1 {
 		font-size: 3.5em;
-		margin-bottom: 0;
+		margin-bottom: 0px;
+		margin-top: 0px;
+		vertical-align: top;
 	}
 	table {
 		border-collapse: collapse;
 		width: 100%;
 		border: solid gray 0.1em;
+		margin-top: 1em;
 	}
 	thead th {
 		height: 2em;
@@ -46,6 +48,7 @@
 		text-align: left;
 		font-size: 2.0em;
 		padding: 8px;
+		margin-top: 1em;
 	}
 	tr:nth-child(even) {
 		background-color: #dddddd;
@@ -58,10 +61,9 @@
 	    border-radius: 0.4em;
 	    font-size: 1.35em;
 		display: inline-block;
-		vertical-align: top;
 	}
 	#add_customer {
-		background: linear-gradient(#f8a227, #f57c22);
+		background-color: #f46f27;
 		margin-bottom: 1rem;
 		margin-top: 0;
 		width: 50.4%;
