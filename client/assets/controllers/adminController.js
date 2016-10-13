@@ -12,6 +12,7 @@ app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cook
 		});
 	};
 	$scope.deleteAdmin = function(){
+		// need to create a check to make sure a master is logged in
 		adminFactory.delete($routeParams, function(results){
 			$scope.update = "User was deleted.  You must create a new user to access Sheets!"
 		});
