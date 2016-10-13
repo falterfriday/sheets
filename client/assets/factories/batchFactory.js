@@ -6,17 +6,11 @@ app.factory('batchFactory', ['$http', function($http){
 				callback(results.data);
 			});
 		}
-		this.delete = function(batch, callback){
-			
-		}
 		this.editStatus = function(batch, callback){
 			console.log(batch, "Factoryyyyyy")
 			$http.post('/update_status', batch).then(function(results){
 				callback(results.data);
 			});
-		}
-		this.show = function(batch, callback){
-			
 		}
 		this.allCustomers = function(callback){
 			$http.get('/get_customers').then(function(results){
@@ -31,8 +25,8 @@ app.factory('batchFactory', ['$http', function($http){
 		this.allBatches = function(callback){
 			$http.get('/get_batches').then(function(results){
 				callback(results.data);
-			})
+			});
 		}
 	}
-	return new batchFactory()	
+	return new batchFactory();	
 }]);

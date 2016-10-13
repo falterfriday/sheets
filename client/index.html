@@ -18,12 +18,12 @@
     <script src="./assets/factories/batchFactory.js"></script>
     <script src="./assets/factories/customerFactory.js"></script>
     <script src="./assets/factories/itemFactory.js"></script>
-    <script src="./assets/factories/credentialFactory.js"></script>
+    <script src="./assets/factories/adminFactory.js"></script>
     <script src="./assets/controllers/userController.js"></script>
     <script src="./assets/controllers/batchController.js"></script>
     <script src="./assets/controllers/customerController.js"></script>
     <script src="./assets/controllers/itemController.js"></script>
-    <script src="./assets/controllers/credentialController.js"></script>
+    <script src="./assets/controllers/adminController.js"></script>
     <link rel="stylesheet" href="./main.css" media="screen">
 <body layout="column">
     <div class="wrapper" flex="100" ng-cloak>
@@ -34,6 +34,7 @@
                 <h1 flex="80" ng-if="username">Hi, {{username}}!</h1>
                 <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()" ng-controller="batchController">Change User</md-button>
                 <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="home" ng-click="home()" ng-controller="batchController">Home</md-button>
+                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="logout" ng-click="logOut()" ng-controller="adminController">Log Out</md-button>
             </div>
         </md-toolbar>
 <!-- _____________________________________________________________________________ -->

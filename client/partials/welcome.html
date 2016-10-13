@@ -1,5 +1,8 @@
 <h1>Sheets!</h1>
-<form>
-	Email: <input type="email" name="email">
-	Password: <input type="password" name="password">
+<form ng-submit="verify()">
+	Email: <input type="email" name="email" ng-model="login.email">
+	Password: <input type="password" name="password" ng-model="login.password">
+	<input type="submit" name="submit" value="Sign In">
 </form>
+
+{{update}}
