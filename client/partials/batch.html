@@ -13,18 +13,6 @@
 		<input ng-model="queuedPerItem.quantity" required>
 	</md-input-container>
 </div>
-<div layout="row" class="padding">
-	<md-input-container class="md-block" flex>
-		<label>Per Item</label>
-		<md-select ng-model="queuedPerItem.index">
-			<md-option ng-repeat ="item in items track by $index" ng-value="{{$index}}"> {{item.name}} (per {{item.charge}} )</md-option>
-		</md-select>
-	</md-input-container>
-	<md-input-container >
-		<label>Quantity</label>
-		<input ng-model="queuedPerItem.quantity" required>
-	</md-input-container>
-</div>
 <div layout="row" layout-align="center center">
 	<md-button class="md-primary md-raised md-hue-1" ng-click="selectPerItem()" flex="100">Add</md-button>
 </div>
