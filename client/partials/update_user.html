@@ -1,6 +1,5 @@
-
-<h2>Create New User</h2>
-<h1>Sheets!</h1>
+<md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="logout" ng-click="logOut()" ng-controller="adminController">Log Out</md-button>
+<h2>Create New Admins</h2>
 <form ng-submit="addAdmin()">
 	Email: <input type="email" ng-model="newAdmin.email" name="email"><br>
 	Password: <input type="password" ng-model="newAdmin.password" name="password"><br>
@@ -8,4 +7,23 @@
 	<input class="md-button md-primary md-raised" flex="100" type="submit" name="submit" value="Create Admin">
 </form>
 
+{{update}}
+<h2>Active Admins</h2>
+	<div class="tables">
+		<table id="admins_table">
+			<thead>
+				<tr>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="admin in admins">
+					<td>{{admin.email}}</td>
+					<td>{{admin._id}}</td>
+					<td><button ng-click="deleteAdmin(admin._id)">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
