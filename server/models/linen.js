@@ -1,6 +1,26 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
+var AdminSchema = new mongoose.Schema({
+	email: {
+		type: String,
+		unique: true,
+		trim: true,
+		required: [true, "You must enter a valid email address."]
+	},
+	password: {
+		type: String,
+		required: [true, "Your password must be at least 8 characters long and less than 32 characters long."]
+	}
+}, {timestamps:true})
+
+AdminSchema.pre('save', function(done){
+	if(this.isNew){
+		return done();
+	}
+	bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
+});
+
 var BatchSchema = new mongoose.Schema({ 
 	status: String, 
 	instructions: String, 
@@ -14,7 +34,7 @@ var BatchSchema = new mongoose.Schema({
 		quantity: Number,
 		subtotal: Number	
 	}]
-}, {timestamps: true});
+}, {timestamps: true})
 
 var ItemSchema = new mongoose.Schema({
 	name: String,
@@ -36,6 +56,9 @@ var CustomerSchema = new mongoose.Schema({
 	weight_price: Number, 
 	comments: String
 }, {timestamps:true});
+
+mongoose.model('Admins', AdminSchema);
+var Admins = mongoose.model('Admins')
 
 mongoose.model('Batches', BatchSchema);
 var Batches = mongoose.model('Batches')
