@@ -35,7 +35,7 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 	$scope.getItems();
 
 	$scope.home = function(){
-		$location.url('/');
+		$location.url('/stations');
 	}
 
 	$scope.selectPerItem = function(){
@@ -198,14 +198,5 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 
 		}
 	};
-//---------------------BOTTOM SHEET---------------------
-	$scope.showBottomSheet = function() {
-		console.log("bottom SHEET!");
-		$scope.alert = '';
-		$mdBottomSheet.show({
-			templateUrl: '/partials/bottom-sheet-template.html',
-		}).then(function(clickedItem) {
-		$scope.alert = 'yo dawg!';
-		});
-	};
+
 }]);

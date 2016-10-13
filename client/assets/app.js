@@ -12,6 +12,10 @@ app.config(function($mdThemingProvider) {
 app.config(function($routeProvider){
 $routeProvider
 	.when('/', {
+		templateUrl: 'partials/welcome.html',
+		controller: 'adminController'
+	})
+	.when('/stations', {
 		templateUrl: 'partials/stations.html',
 		controller: 'batchController'
 	})
@@ -62,6 +66,10 @@ $routeProvider
 	.when('/edit_item/:id', {
 		templateUrl: 'partials/edit_items.html',
 		controller: 'itemController'
+	})
+	.when('/update_user', {
+		templateUrl: 'partials/update_user.html',
+		controller: 'adminController'
 	})
 	// .when( {
 	// 	templateUrl: 'partials/login.html',

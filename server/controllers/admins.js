@@ -3,13 +3,13 @@ var Admins = mongoose.model('Admins');
 function AdminsController(){
 
 	this.verifyMaster = function(req,res){
-		var admin =
+		var login =
 			{email: req.body.email,
 			password: req.body.password}
-		if(admin.email == "jauschalley@gmail.com" && admin.password == "Trucker6210"){
-			res.json(admin)
+		if(login.email == "jauschalley@gmail.com" && login.password == "Trucker6210"){
+			res.json(login)
 		}else{
-			err = "The information given does not match our records."
+			err= {message: "The information given does not match our records."}
 			res.json(err)
 		};
 	};
@@ -30,7 +30,7 @@ function AdminsController(){
 
 	this.verifyAdmin = function(req, res){
 		console.log(req.body)
-		Admin.findOne({email: req.body.email}, function(err, user){
+		Admins.findOne({email: req.body.email}, function(err, user){
 			if(err){
 				res.json(err);
 			}else{
@@ -40,7 +40,7 @@ function AdminsController(){
 	};
 
 	this.getAdmin = function(req,res){
-		Admin.find({}, function(admins, err){
+		Admins.find({}, function(admins, err){
 			if(err){
 				res.json(err);
 			}else{
