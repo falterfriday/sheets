@@ -72,37 +72,6 @@
     border: solid 2px gray;
     margin: 0px;
 }
-
-/*#receiving {
-    background: linear-gradient(#00BCD4, #B3DFAA);
-}
-#wash {
-    background:linear-gradient(#17B9F2, #3B9BEF);
-
-}
-#dry {
-    background:linear-gradient(#17B9F2, #3B9BEF);
-
-}
-#folder {
-    background:linear-gradient(#17B9F2, #3B9BEF);
-
-}
-#finish {
-    background:linear-gradient(#17B9F2, #3B9BEF);
-
-}
-#management {
-    background:linear-gradient(#CE86F3, #9E40EC);
-}*/
-#back{
-        position:absolute;
-        right:0;
-        top:0;
-        padding: 0px;
-        width: 60px;
-        height: 60px;
-    }
 h1 {
     display: inline-block;
 }
