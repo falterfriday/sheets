@@ -20,8 +20,7 @@
 			<tbody>
 				<tr ng-repeat="admin in admins">
 					<td>{{admin.email}}</td>
-					<td>{{admin._id}}</td>
-					<td><button ng-click="deleteAdmin(admin._id)">Delete</button></td>
+					<td><button ng-click="deleteUser(admin._id)">Delete</button></td>
 				</tr>
 			</tbody>
 		</table>

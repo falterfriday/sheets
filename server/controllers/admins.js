@@ -19,6 +19,7 @@ function AdminsController(){
 			email: req.body.email,
 			password: req.body.password
 		})
+		console.log(admin)
 		admin.save(function(err, results){
 			if(err){
 				res.json(err);
@@ -49,9 +50,9 @@ function AdminsController(){
 		});
 	};
 
-	this.destroyAdmin = function(id,res){
-		console.log(id)
-		Admins.remove({_id: id}, function(err){
+	this.destroyUser = function(req,res){
+		console.log(req.params.id)
+		Admins.remove({_id: req.params.id}, function(err){
 			if(err){
 				res.json(err);
 			}else{

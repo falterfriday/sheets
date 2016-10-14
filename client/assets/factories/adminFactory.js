@@ -2,13 +2,13 @@ app.factory('adminFactory', ['$http', function($http){
 
 	function adminFactory(){
 		this.create = function(admin, callback){
+			console.log(admin)
 			$http.post('/createAdmin', admin).then(function(results){
 				callback(results.data);
 			})
 		}
 		this.delete = function(id, callback){
-			console.log(id)
-			$http.post('/deleteAdmin', id).then(function(results){
+			$http.post('/deleteUser/'+id).then(function(results){
 				callback(results.data)
 			})
 		}
