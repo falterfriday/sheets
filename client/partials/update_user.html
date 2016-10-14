@@ -1,28 +1,76 @@
 <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="logout" ng-click="logOut()" ng-controller="adminController">Log Out</md-button>
 <h2>Create New Admins</h2>
-<form ng-submit="addAdmin()">
-	Email: <input type="email" ng-model="newAdmin.email" name="email"><br>
-	Password: <input type="password" ng-model="newAdmin.password" name="password"><br>
-	Confirm Password: <input type="password" name="confirmation" ng-model="newAdmin.confirmation"><br>
-	<input class="md-button md-primary md-raised" flex="100" type="submit" name="submit" value="Create Admin">
-</form>
+<md-content>
+	<div layout="row" layout-align="start">
+		<form ng-submit="addAdmin()">
+			<md-input-container class="md-block">
+				<label>Email: </label>
+				<input type="email" ng-model="newAdmin.email" name="email"><br>
+			</md-input-container class="md-block">
+			<md-input-container>
+				<label>Password: </label>
+				<input type="password" ng-model="newAdmin.password" name="password"><br>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<label>Confirm Password: </label>
+				<input type="password" name="confirmation" ng-model="newAdmin.confirmation"><br>
+			</md-input-container>
+			<input class="md-button md-primary md-raised" flex="100" type="submit" name="submit" value="Create Admin">
+		</form>
+	</div>
+</md-content>
 
 {{update}}
 <h2>Active Admins</h2>
-	<div class="tables">
-		<table id="admins_table">
-			<thead>
-				<tr>
-					<th>Email</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="admin in admins">
-					<td>{{admin.email}}</td>
-					<td><button ng-click="deleteUser(admin._id)">Delete</button></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
+<div class="tables">
+	<table id="admins_table">
+		<thead>
+			<tr>
+				<th>Email</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="admin in admins">
+				<td>{{admin.email}}</td>
+				<td><button ng-click="deleteUser(admin._id)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<style media="screen">
+	#logout {
+		float: right;
+	}
+	input[type=email] {
+		width: 50vw;
+	}
+	input[type=password] {
+		width: 50vw;
+	}
+	.tables {
+		border: solid black 1px;
+		display: inline-block;
+		margin-left: 0.5em;
+		width: 98.2%;
+		height: 43vh;
+		margin-bottom: 0.5em;
+		overflow: auto;
+	}
+	.tables table {
+	    border-collapse: collapse;
+	    width: 100%;
+		border: solid gray 1px;
+		color: black;
+		overflow: scroll;
+	}
+	.tables td, .tables th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	.tables th {
+		border: none;
+		background-color: #81efed;
+	}
+</style>

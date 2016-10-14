@@ -13,7 +13,9 @@ app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cook
 	$scope.addAdmin = function(){
 		console.log($scope.newAdmin)
 		adminFactory.create($scope.newAdmin, function(results){
-			$location.url('/update_user');
+			console.log("iwuehfiwueh");
+			$scope.newAdmin = {}
+			$scope.getAdmins();
 		});
 	};
 	$scope.deleteUser = function(id){
