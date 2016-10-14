@@ -7,8 +7,7 @@ app.factory('adminFactory', ['$http', function($http){
 			})
 		}
 		this.delete = function(id, callback){
-			console.log(id)
-			$http.post('/deleteAdmin', id).then(function(results){
+			$http.post('/deleteUser/'+id).then(function(results){
 				callback(results.data)
 			})
 		}

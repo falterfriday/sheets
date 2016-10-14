@@ -17,14 +17,14 @@ app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cook
 			$location.url('/welcome');
 		});
 	};
-	$scope.deleteAdmin = function(id){
+	$scope.deleteUser = function(id){
 		// need to create a check to make sure a master is logged in
 		console.log(id)
 		adminFactory.delete(id, function(results){
 			$scope.update = "User was deleted.  You must have at least one user to access Sheets!"
 		});
+		$scope.getAdmins()
 	};
-	$scope.getAdmins()
 
 	$scope.verify = function(){
 		adminFactory.verifyMaster($scope.login, function(results){
