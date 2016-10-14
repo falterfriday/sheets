@@ -28,7 +28,7 @@
 <body layout="column">
     <div class="wrapper" flex="100" ng-cloak>
 <!-- ____________________________PERSISTENT STATUS BAR____________________________ -->
-        <md-toolbar class="md-success md-primary md-hue-1" ng-controller="userController">
+        <md-toolbar class="md-success md-primary md-hue-1" ng-controller="userController" ng-if="master == true || admin == true">
             <div class="md-toolbar-tools" layout="row" flex>
                 <!-- <h1 flex="80" ng-if="!username"></h1> -->
                 <h1 flex="80" ng-if="username">Hi, {{username}}!</h1>

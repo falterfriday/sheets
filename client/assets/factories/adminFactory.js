@@ -28,5 +28,5 @@ app.factory('adminFactory', ['$http', function($http){
 			});
 		}
 	}
-	return new adminFactory();	
+	return new adminFactory();
 }]);
