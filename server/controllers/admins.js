@@ -49,8 +49,9 @@ function AdminsController(){
 		});
 	};
 
-	this.deleteAdmin = function(req,res){
-		Admins.remove({_id: req.ody.id}, function(err){
+	this.destroyAdmin = function(id,res){
+		console.log(id)
+		Admins.remove({_id: id}, function(err){
 			if(err){
 				res.json(err);
 			}else{

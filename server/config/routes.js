@@ -16,7 +16,7 @@ module.exports = function(app){
 	app.get('/get_batches', batches.getBatches);
 	app.post('/update_status', batches.updateStatus);
 	app.post('/createAdmin', admins.createAdmin);
-	app.post('/destroyAdmin', admins.deleteAdmin);
+	app.post('/deleteAdmin', admins.destroyAdmin);
 	app.get('/getAdmins', admins.getAdmin);
 	app.post('/checkAdmin', admins.verifyAdmin);
 	app.post('/checkMaster', admins.verifyMaster);
