@@ -2,6 +2,7 @@ app.factory('adminFactory', ['$http', function($http){
 
 	function adminFactory(){
 		this.create = function(admin, callback){
+			console.log(admin)
 			$http.post('/createAdmin', admin).then(function(results){
 				callback(results.data);
 			})

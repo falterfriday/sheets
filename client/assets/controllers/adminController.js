@@ -1,31 +1,29 @@
 app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cookies', function($scope, adminFactory, $location, $cookies){
 	$scope.update;
+	$scope.admins;
 
 	$scope.getAdmins = function(){
 		adminFactory.allAdmins(function(results){
 			$scope.admins = results;
+			console
 		});
 	};
+	$scope.getAdmins()
+
 	$scope.addAdmin = function(){
+		console.log($scope.newAdmin)
 		adminFactory.create($scope.newAdmin, function(results){
-			$location.url('/welcome');
+			$location.url('/update_user');
 		});
 	};
-<<<<<<< HEAD
 	$scope.deleteUser = function(id){
-=======
-	$scope.deleteAdmin = function(){
->>>>>>> 31f46bd148ea2e388fd8152d16af13f9e12926f0
 		// need to create a check to make sure a master is logged in
-		adminFactory.delete($routeParams, function(results){
+		adminFactory.delete(id, function(results){
 			$scope.update = "User was deleted.  You must create a new user to access Sheets!"
 		});
 		$scope.getAdmins()
 	};
-<<<<<<< HEAD
 
-=======
->>>>>>> 31f46bd148ea2e388fd8152d16af13f9e12926f0
 	$scope.verify = function(){
 		adminFactory.verifyMaster($scope.login, function(results){
 			if(results.message){

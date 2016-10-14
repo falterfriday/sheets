@@ -19,6 +19,7 @@ function AdminsController(){
 			email: req.body.email,
 			password: req.body.password
 		})
+		console.log(admin)
 		admin.save(function(err, results){
 			if(err){
 				res.json(err);
