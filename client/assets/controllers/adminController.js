@@ -1,6 +1,8 @@
-app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cookies', function($scope, adminFactory, $location, $cookies){
+app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$location', '$cookies', function($scope, $rootScope, adminFactory, $location, $cookies){
 	$scope.update;
 	$scope.admins;
+
+	$scope.current_user = {};
 
 	$scope.getAdmins = function(){
 		adminFactory.allAdmins(function(results){
@@ -10,10 +12,16 @@ app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cook
 	};
 	$scope.getAdmins()
 
+	$scope.getUserStatus = function(){
+		adminFactory.getUserStatus(function(user){
+			$rootScope.current_user = user;
+			console.log("current_user = ", $scope.current_user);
+		});
+	}
+
 	$scope.addAdmin = function(){
 		console.log($scope.newAdmin)
 		adminFactory.create($scope.newAdmin, function(results){
-			console.log("iwuehfiwueh");
 			$scope.newAdmin = {}
 			$scope.getAdmins();
 		});
@@ -32,24 +40,26 @@ app.controller('adminController', ['$scope', 'adminFactory', '$location', '$cook
 				adminFactory.verifyAdmin($scope.login, function(results){
 					if(results == null){
 						 $scope.update = "Nope"
+						 $scope.getUserStatus();
 					}else{
 						$cookies.putObject("user",results)
-						console.log(results)
-						console.log($cookies)
-						$location.url('/')
+						console.log("cookied user = ", $cookies.getObject('user') )
+						$scope.getUserStatus();
+						$location.url('/stations')
 					}
 				})
 			}else{
-				console.log(results)
+				console.log("master aC results = ", results)
 				$cookies.putObject("user",results)
-				console.log( $cookies.getObject('user') )
-				console.log("ytytytytytytytytytytytytytytytyt")
+				console.log("cookied user = ", $cookies.getObject('user') )
+				$scope.getUserStatus();
 				$location.url('/update_user')
 			}
 		})
 	}
 	$scope.logOut = function(){
 		$cookies.remove("user")
+		$rootScope.current_user = {};
 		$location.url('/welcome')
 		console.log($cookies)
 	}
