@@ -1,4 +1,4 @@
-app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', '$mdBottomSheet', function($scope, batchFactory, $location, $cookies, $routeParams, $mdDialog, $mdBottomSheet){
+app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', '$mdBottomSheet', function($scope, $rootScope, adminFactory, batchFactory, $location, $cookies, $routeParams, $mdDialog, $mdBottomSheet){
 	$scope.customers;
 	$scope.items;
 	$scope.batches;
@@ -198,5 +198,8 @@ app.controller('batchController', ['$scope', 'batchFactory', '$location', '$cook
 
 		}
 	};
-
+	adminFactory.getUserStatus(function(user){
+		$rootScope.current_user = user;
+		console.log('owueihfwfeiu');
+	});
 }]);

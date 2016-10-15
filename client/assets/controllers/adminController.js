@@ -14,12 +14,10 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 
 	$scope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
-			$scope.current_user = user;
-			$scope.$emit($scope.current_user)
+			$rootScope.current_user = user;
 			console.log("current_user = ", $scope.current_user);
 		});
 	}
-	// getUserStatus();
 
 	$scope.addAdmin = function(){
 		console.log($scope.newAdmin)

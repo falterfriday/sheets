@@ -1,6 +1,16 @@
-app.controller('userController', ['$scope', 'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', function($scope, batchFactory, $location, $cookies, $routeParams, $mdDialog){
-  
+app.controller('userController', ['$scope', '$rootScope', 'adminFactory' ,'batchFactory', '$location', '$cookies', '$routeParams','$mdDialog', function($scope, $rootScope, adminFactory, batchFactory, $location, $cookies, $routeParams, $mdDialog){
+
   $scope.admin = $cookies.getObject("user");
+
+  $scope.current_user = {};
+
+  $scope.getUserStatus = function(){
+		adminFactory.getUserStatus(function(user){
+			$rootScope.current_user = user;
+			console.log("current_user = ", $scope.current_user);
+		});
+	}
+  $scope.getUserStatus();
 
   $scope.showPrompt = function(ev) {
   var confirm = $mdDialog.prompt()
@@ -34,6 +44,7 @@ app.controller('userController', ['$scope', 'batchFactory', '$location', '$cooki
           $scope.username = $cookies.getObject('user').username;
           console.log("Name = ", $scope.username);
           console.log("cookies = ", $cookies.getObject('user'));
+          $scope.getUserStatus();
       }
   };
   $scope.getName();
@@ -43,4 +54,7 @@ app.controller('userController', ['$scope', 'batchFactory', '$location', '$cooki
       $cookies.remove('user');
       $scope.getName();
   };
+  adminFactory.getUserStatus(function(user){
+      $rootScope.current_user = user;
+  });
 }]);
