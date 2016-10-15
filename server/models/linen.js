@@ -22,11 +22,24 @@ AdminSchema.pre('save', function(done){
 });
 
 var BatchSchema = new mongoose.Schema({ 
-	status: { type: String, required: true, maxlength: 15}, 
-	instructions: { type: String, maxlength: 60}, 
-	recieved_by: { type: String, maxlength: 20}
+	status: { 
+		type: String, 
+		required: true, 
+		maxlength: 15
+	}, 
+	instructions: { 
+		type: String, 
+		maxlength: 60
+	}, 
+	recieved_by: { 
+		type: String, 
+		maxlength: 20
+	}
 	due_date: String, 
-	_customer: {type: Schema.Types.ObjectId, ref: "Customers"},
+	_customer: {
+		type: Schema.Types.ObjectId, 
+		ref: "Customers"
+	},
 	order: [{
 		name: { type: String, maxlength: 20}
 		price: { type: String, maxlength: 20}

@@ -14,6 +14,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	$scope.completed = [];
 	$scope.processing = [];
 	$scope.queue = [];
+	$scope.problem;
 
 	$scope.getBatches = function(){
 		batchFactory.allBatches(function(results){
@@ -68,7 +69,12 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		$scope.newBatch.order = $scope.queue;
 		$scope.newBatch.status = "Received";
 		batchFactory.create($scope.newBatch, function(results){
+			if(err){
+				console.log(results.data)
+				$scope.problem = results.data;
+			}else{
 			$location.url('/dashboard');
+			}
 		});
 	};
 	$scope.updateStatus = function(batch){
