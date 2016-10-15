@@ -22,39 +22,39 @@ AdminSchema.pre('save', function(done){
 });
 
 var BatchSchema = new mongoose.Schema({ 
-	status: String, 
-	instructions: String, 
-	recieved_by: String,
+	status: { type: String, required: true, maxlength: 15}, 
+	instructions: { type: String, maxlength: 60}, 
+	recieved_by: { type: String, maxlength: 20}
 	due_date: String, 
 	_customer: {type: Schema.Types.ObjectId, ref: "Customers"},
 	order: [{
-		name: String,
-		price: Number, 
-		charge: String, 
-		quantity: Number,
-		subtotal: Number	
+		name: { type: String, maxlength: 20}
+		price: { type: String, maxlength: 20}
+		charge: { type: String, maxlength: 20} 
+		quantity: { type: String, maxlength: 20}
+		subtotal: { type: String, maxlength: 20}	
 	}]
 }, {timestamps: true})
 
 var ItemSchema = new mongoose.Schema({
-	name: String,
-	type: String,
-	size: String,
-	charge : String, 
-	price: Number, 
-	created_by: String
+	name: { type: String, required: true, maxlength: 60}, 
+	type: { type: String, required: true, maxlength: 20}, 
+	size: { type: String, required: true, maxlength: 20}, 
+	charge : { type: String, required: true, maxlength: 60},  
+	price: { type: String, required: true, maxlength: 20},  
+	created_by: { type: String, required: true, maxlength: 20}, 
 }, {timestamps: true});
 
 var CustomerSchema = new mongoose.Schema({
-	name: String,
-	contact_name: String,
-	phone: String, 
-	email: String, 
-	address: String,
-	address2: String, 
-	address3: String,
+	name: { type: String, required: true, maxlength: 40}, 
+	contact_name: { type: String, required: true, maxlength: 20}, 
+	phone: { type: String, required: true, maxlength: 20}, 
+	email: { type: String, required: true, maxlength: 40}, 
+	address: { type: String, required: true, maxlength: 40}, 
+	address2: { type: String, required: true, maxlength: 40},  
+	address3: { type: String, required: true, maxlength: 40}, 
 	weight_price: Number, 
-	comments: String
+	comments: { type: String, required: true, maxlength: 60}, 
 }, {timestamps:true});
 
 mongoose.model('Admins', AdminSchema);
