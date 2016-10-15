@@ -8,13 +8,9 @@ $scope.customer;
 $scope.allCustomers = function(){
 	customerFactory.all(function(results){
 		$scope.customers = results
-		console.log(results)
 		for (var customer in $scope.customers){
-			console.log($scope.customers[customer]._id)
-			console.log($scope.id)
 			if($scope.customers[customer]._id == $scope.id){
 				$scope.customer = $scope.customers[customer]
-				console.log($scope.customer)
 			}
 		}
 	})
@@ -38,7 +34,6 @@ $scope.updateCustomer = function(){
 
 $scope.deleteCustomer = function(){
 	customerFactory.delete($routeParams, function(results){
-		console.log(results.err)
 		$location.url('/customer_manage')
 	})
 

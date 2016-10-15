@@ -5,7 +5,6 @@ app.factory('adminFactory', ['$http', function($http){
 		var current_user = {};
 
 		this.create = function(admin, callback){
-			console.log(admin);
 			$http.post('/createAdmin', admin).then(function(results){
 				callback(results.data);
 			});
@@ -22,7 +21,6 @@ app.factory('adminFactory', ['$http', function($http){
 		};
 		this.verifyAdmin = function(login, callback){
 			$http.post('/checkAdmin', login).then(function(results){
-				console.log("aF results = ", results.data);
 				if (results.data){
 					current_user.master = "no";
 					current_user.admin = "admin";
@@ -36,7 +34,6 @@ app.factory('adminFactory', ['$http', function($http){
 		};
 		this.verifyMaster = function(login, callback){
 			$http.post('/checkMaster', login).then(function(results){
-				console.log(results.data);
 				current_user.master = results.data.master;
 				current_user.admin = results.data.admin;
 				// console.log("current_user = ", current_user);

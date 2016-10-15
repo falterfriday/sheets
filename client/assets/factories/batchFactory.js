@@ -7,7 +7,6 @@ app.factory('batchFactory', ['$http', function($http){
 			});
 		}
 		this.editStatus = function(batch, callback){
-			console.log(batch, "Factoryyyyyy")
 			$http.post('/update_status', batch).then(function(results){
 				callback(results.data);
 			});

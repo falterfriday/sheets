@@ -7,7 +7,6 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	$scope.getAdmins = function(){
 		adminFactory.allAdmins(function(results){
 			$scope.admins = results;
-			console
 		});
 	};
 	$scope.getAdmins()
@@ -15,12 +14,10 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	$scope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
 			$rootScope.current_user = user;
-			console.log("current_user = ", $scope.current_user);
 		});
 	}
 
 	$scope.addAdmin = function(){
-		console.log($scope.newAdmin)
 		adminFactory.create($scope.newAdmin, function(results){
 			$scope.newAdmin = {}
 			$scope.getAdmins();
@@ -43,15 +40,12 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 						 $scope.getUserStatus();
 					}else{
 						$cookies.putObject("user",results)
-						console.log("cookied user = ", $cookies.getObject('user') )
 						$scope.getUserStatus();
 						$location.url('/stations')
 					}
 				})
 			}else{
-				console.log("master aC results = ", results)
 				$cookies.putObject("user",results)
-				console.log("cookied user = ", $cookies.getObject('user') )
 				$scope.getUserStatus();
 				$location.url('/update_user')
 			}
@@ -61,6 +55,5 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 		$cookies.remove("user")
 		$rootScope.current_user = {};
 		$location.url('/welcome')
-		console.log($cookies)
 	}
 }])

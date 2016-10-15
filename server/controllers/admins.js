@@ -24,7 +24,6 @@ function AdminsController(){
 			email: req.body.email,
 			password: req.body.password
 		});
-		console.log(admin);
 		admin.save(function(err, results){
 			if(err){
 				res.json(err);
@@ -35,7 +34,6 @@ function AdminsController(){
 	};
 
 	this.verifyAdmin = function(req, res){
-		console.log(req.body);
 		Admins.findOne({email: req.body.email}, function(err, user){
 			if(err){
 				res.json(err);
@@ -56,7 +54,6 @@ function AdminsController(){
 	};
 
 	this.destroyUser = function(req,res){
-		console.log(req.params.id);
 		Admins.remove({_id: req.params.id}, function(err){
 			if(err){
 				res.json(err);

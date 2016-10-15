@@ -7,7 +7,6 @@ app.controller('userController', ['$scope', '$rootScope', 'adminFactory' ,'batch
   $scope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
 			$rootScope.current_user = user;
-			console.log("current_user = ", $scope.current_user);
 		});
 	}
   $scope.getUserStatus();
@@ -27,10 +26,8 @@ app.controller('userController', ['$scope', '$rootScope', 'adminFactory' ,'batch
       if (result === undefined){
           $scope.getName();
       } else {
-          console.log("results = ", result);
           $scope.username = result;
           $cookies.putObject('user',{username:result});
-          console.log($cookies.getObject('user'));
       }
   },
       function() {
@@ -42,15 +39,12 @@ app.controller('userController', ['$scope', '$rootScope', 'adminFactory' ,'batch
           $scope.showPrompt();
       } else {
           $scope.username = $cookies.getObject('user').username;
-          console.log("Name = ", $scope.username);
-          console.log("cookies = ", $cookies.getObject('user'));
           $scope.getUserStatus();
       }
   };
   $scope.getName();
 
   $scope.removeName = function(){
-      console.log("changing username");
       $cookies.remove('user');
       $scope.getName();
   };

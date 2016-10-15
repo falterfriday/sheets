@@ -45,7 +45,6 @@ function BatchesController(){
 					batch.status = "Finishing";
 				else if(batch.status == "Finishing")
 					batch.status = "Completed";
-				console.log(batch, 'controlllererrrrrr');
 				batch.save(function(err){
 					if (err){
 						res.json(err);
