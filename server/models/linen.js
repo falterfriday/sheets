@@ -22,39 +22,113 @@ AdminSchema.pre('save', function(done){
 });
 
 var BatchSchema = new mongoose.Schema({ 
-	status: String, 
-	instructions: String, 
-	recieved_by: String,
+	status: { 
+		type: String, 
+		required: true, 
+		maxlength: 15
+	}, 
+	instructions: { 
+		type: String, 
+		maxlength: 60
+	}, 
+	recieved_by: { 
+		type: String, 
+		maxlength: 20
+	}
 	due_date: String, 
-	_customer: {type: Schema.Types.ObjectId, ref: "Customers"},
+	_customer: {
+		type: Schema.Types.ObjectId, 
+		ref: "Customers"
+	},
 	order: [{
-		name: String,
-		price: Number, 
-		charge: String, 
-		quantity: Number,
-		subtotal: Number	
+		name: { type: String, maxlength: 20}
+		price: { type: String, maxlength: 20}
+		charge: { type: String, maxlength: 20} 
+		quantity: { type: String, maxlength: 20}
+		subtotal: { type: String, maxlength: 20}	
 	}]
 }, {timestamps: true})
 
 var ItemSchema = new mongoose.Schema({
-	name: String,
-	type: String,
-	size: String,
-	charge : String, 
-	price: Number, 
-	created_by: String
+	name: { 
+		type: String, 
+		required: [true, "Your item must have a name."] 
+		maxlength: 60,
+		trim: true,
+	}, 
+	type: { 
+		type: String, 
+		maxlength: 20,
+		trim: true,
+	}, 
+	size: { type: String, maxlength: 20}, 
+	charge : { 
+		type: String, 
+		required: [true, "Do you plan to charge per item or per pound."]
+		maxlength: 10,
+		trim: true,
+	},  
+	price: { 
+		type: String, 
+		required: true, 
+		maxlength: 20,
+		trim: true,
+	},  
+	created_by: { 
+		type: String, 
+		required: true,
+		maxlength: 20,
+		trim: true,
+	}, 
 }, {timestamps: true});
 
 var CustomerSchema = new mongoose.Schema({
-	name: String,
-	contact_name: String,
-	phone: String, 
-	email: String, 
-	address: String,
-	address2: String, 
-	address3: String,
+	name: { 
+		type: String, 
+		required: [true, "You must enter the company's name."] 
+		maxlength: 40,
+		trim: true,
+	}, 
+	contact_name: { 
+		type: String, 
+		required: [true, "You really want to have a person to contact for questions."]
+		maxlength: 20,
+		trim: true,
+	}, 
+	phone: { 
+		type: String, 
+		required: [true, "You must enter a phone number."] 
+		maxlength: 20,
+		trim: true,
+	}, 
+	email: { 
+		type: String, 
+		required: [true, "We need to have a email address for billing."] 
+		maxlength: 40,
+		trim: true,
+	}, 
+	address: { 
+		type: String, 
+		required: [true, "You must enter a deliery or billing address."]
+		maxlength: 40
+	}, 
+	address2: { 
+		type: String, 
+		required: true, 
+		maxlength: 40
+	},  
+	address3: { 
+		type: String, 
+		required: true, 
+		maxlength: 40
+	}, 
 	weight_price: Number, 
-	comments: String
+	comments: { 
+		type: String, 
+		required: true,
+		 maxlength: 60,
+		 trim: true,
+		}, 
 }, {timestamps:true});
 
 mongoose.model('Admins', AdminSchema);

@@ -30,14 +30,18 @@
 				<tr>
 					<th>Batch</th>
 					<th>Customer</th>
+					<th>Created</th>
 					<th>Due</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="batch in batches" >
 					<td ng-if="batch.status == 'Completed'">{{batch._id.slice(-5)}}</td>
 					<td ng-if="batch.status == 'Completed'">{{batch._customer.name}}</td>
+					<td ng-if="batch.status == 'Completed'">{{batch.createdAt | date:'M/d/yy h:mm a'}}</td>
 					<td ng-if="batch.status == 'Completed'">{{batch.due_date | date:'M/d/yy'}}</td>
+					<td ng-if="batch.status == 'Completed'"><a href="">Details</a></td>
 				</tr>
 			</tbody>
 		</table>

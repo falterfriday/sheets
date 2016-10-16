@@ -14,6 +14,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	$scope.completed = [];
 	$scope.processing = [];
 	$scope.queue = [];
+	$scope.problem;
 
 	$scope.getBatches = function(){
 		batchFactory.allBatches(function(results){
@@ -47,14 +48,12 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 				$scope.queuedPerItem.price = arr[i].price;
 			}
 		}
-		console.log(parseFloat($scope.queuedPerItem.price))
 		$scope.queuedPerItem.subtotal = parseFloat($scope.queuedPerItem.price)*parseInt($scope.queuedPerItem.quantity);
 		$scope.queue.push($scope.queuedPerItem);
 		$scope.queuedPerItem = {};
 	};
 	$scope.selectPerPound = function(){
 		var arr = $scope.items;
-		console.log($scope.queuedPerPound)
 		for (var i=0; i<arr.length; i++){
 			if ($scope.queuedPerPound.index == i){
 				$scope.queuedPerPound.name = arr[i].name;
@@ -62,7 +61,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 				$scope.queuedPerPound.price = arr[i].price;
 			}
 		}
-		console.log(($scope.queuedPerPound.price))
 		$scope.queuedPerPound.subtotal = parseFloat($scope.queuedPerPound.price)*parseInt($scope.queuedPerPound.quantity);
 		$scope.queue.push($scope.queuedPerPound);
 		$scope.queuedPerPound = {};
@@ -71,7 +69,12 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		$scope.newBatch.order = $scope.queue;
 		$scope.newBatch.status = "Received";
 		batchFactory.create($scope.newBatch, function(results){
+			if(err){
+				console.log(results.data)
+				$scope.problem = results.data;
+			}else{
 			$location.url('/dashboard');
+			}
 		});
 	};
 	$scope.updateStatus = function(batch){
@@ -88,7 +91,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		});
 	};
 	$scope.highlight = function(batch){
-		console.log(batch);
 		if(batch.status == "Received"){
 			$scope.queued_item = batch;
 			$scope.hide_val = false;
@@ -110,7 +112,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		}
 	};
 	$scope.highlight2 = function(batch){
-		console.log(batch);
 		if(batch.status == "Dry"){
 			$scope.queued_item = batch;
 			$scope.hide_val = false;
@@ -132,7 +133,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		}
 	};
 	$scope.highlight3 = function(batch){
-		console.log(batch);
 		if(batch.status == "Fold"){
 			$scope.queued_item = batch;
 			$scope.hide_val = false;
@@ -154,7 +154,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		}
 	};
 	$scope.highlight4 = function(batch){
-		console.log(batch);
 		if(batch.status == "Finishing"){
 			$scope.queued_item = batch;
 			$scope.hide_val = false;
@@ -200,6 +199,5 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	};
 	adminFactory.getUserStatus(function(user){
 		$rootScope.current_user = user;
-		console.log('owueihfwfeiu');
 	});
 }]);
