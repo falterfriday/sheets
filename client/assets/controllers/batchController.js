@@ -77,10 +77,9 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		$scope.newBatch.status = "Received";
 		batchFactory.create($scope.newBatch, function(results){
 			if(err){
-				console.log(results.data)
 				$scope.problem = results.data;
 			}else{
-			$location.url('/dashboard');
+				$location.url('/dashboard');
 			}
 		});
 	};

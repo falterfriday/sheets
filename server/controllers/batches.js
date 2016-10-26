@@ -29,7 +29,8 @@ function BatchesController(){
 			}
 		});
 	}
-	this.getBatch = function(req,res){
+	this.findBatch = function(req,res){
+		console.log(req.params.id)
 		Batches.findOne({_id: req.params.id})
 		.populate("_customer")
 		.exec(function(err, batch){
