@@ -20,5 +20,5 @@ module.exports = function(app){
 	app.get('/getAdmins', admins.getAdmin);
 	app.post('/checkAdmin', admins.verifyAdmin);
 	app.post('/checkMaster', admins.verifyMaster);
-	app.get('/get_batch', batches.findBatch);
-}
+	app.post('/get_batch', batches.findBatch);
+};
