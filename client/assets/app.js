@@ -71,10 +71,10 @@ $routeProvider
 		templateUrl: 'partials/update_user.html',
 		controller: 'adminController'
 	})
-	// .when( {
-	// 	templateUrl: 'partials/login.html',
-	// 	controller: 'credentialController'
-	// })
+	.when('/view_batch/:id', {
+		templateUrl: 'partials/view_batch.html',
+		controller: 'batchController'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
