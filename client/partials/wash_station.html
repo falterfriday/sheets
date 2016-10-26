@@ -2,40 +2,44 @@
 <h1>WASH</h1>
 </div>
 <h2>Recieved and Ready for the Wash</h2>
-    <table>
-        <tr>
-            <th>Batch Number</th>
-            <th>Company Name</th>
-            <th>Due Date</th>
-            <th>Action</th>
-        </tr>
-        <tr ng-repeat ="batch in batches|filter:{status: 'Received'}" ng-class="{'highlight': isSelected(batch)}">
-            <!-- ng-repeat  -->
-            <td>{{batch._id.slice(batch._id.length-5)}}</td>
-            <td>{{batch._customer.name}}</td>
-            <td>{{batch.due_date| date: 'M/d/yy'}}</td>
-            <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
-        </tr>
-    </table>
+    <div class="funtime">
+        <table>
+            <tr>
+                <th>Batch Number</th>
+                <th>Company Name</th>
+                <th>Due Date</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat ="batch in batches|filter:{status: 'Received'}" ng-class="{'highlight': isSelected(batch)}">
+                <!-- ng-repeat  -->
+                <td>{{batch._id.slice(batch._id.length-5)}}</td>
+                <td>{{batch._customer.name}}</td>
+                <td>{{batch.due_date| date: 'M/d/yy'}}</td>
+                <td><button ng-click="deselect(batch)" ng-hide = "hide_val3">Clear</button><button ng-click="highlight(batch)" ng-hide = "hide_val4">Select</button></td>
+            </tr>
+        </table>
+    </div>
     <md-button class="station_button md-primary md-hue-2 md-raised" ng-click="updateStatus(queued_item)" ng-hide = "hide_val" class="wash_button">PUT IN WASHER</md-button>
     <h2 id="wash_list">Washed and Ready for the Dryer</h2>
-    <table>
-        <tr>
-            <th>Batch Number</th>
-            <th>Company Name</th>
-            <th>Due Date</th>
-            <th>Action</th>
-        </tr>
+    <div class="funtime">
+        <table>
+            <tr>
+                <th>Batch Number</th>
+                <th>Company Name</th>
+                <th>Due Date</th>
+                <th>Action</th>
+            </tr>
 
-        <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}" ng-class="{'highlight': isSelected(batch)}">
-            <!-- ng-repeat  -->
-            <td>{{batch._id.slice(batch._id.length-5)}}</td>
-            <td>{{batch._customer.name}}</td>
-            <td>{{batch.due_date | date: 'M/d/yy'}}</td>
-            <td><button ng-click="deselect(batch)" ng-hide = "hide_val5">Clear</button>
-            <button ng-click="highlight(batch)" ng-hide = "hide_val6">Select</button></td>
-        </tr>
-    </table>
+            <tr ng-repeat ="batch in batches|filter:{status: 'Washing'}" ng-class="{'highlight': isSelected(batch)}">
+                <!-- ng-repeat  -->
+                <td>{{batch._id.slice(batch._id.length-5)}}</td>
+                <td>{{batch._customer.name}}</td>
+                <td>{{batch.due_date | date: 'M/d/yy'}}</td>
+                <td><button ng-click="deselect(batch)" ng-hide = "hide_val5">Clear</button>
+                <button ng-click="highlight(batch)" ng-hide = "hide_val6">Select</button></td>
+            </tr>
+        </table>
+    </div>
     <md-button class="station_button md-primary md-hue-2 md-raised" ng-click="updateStatus(queued_item)" ng-hide="hide_val2" class = "wash_button">SEND TO DRYER</md-button>
     <!-- ng-click in the div-->
 <style>
@@ -55,6 +59,11 @@
         border-collapse: collapse;
         width: 100%;
         overflow: auto;
+    }
+    .funtime{
+        overflow: auto;
+        height: 20%; 
+        border: solid black 1px;
     }
     th, td {
         padding: 1.3em;

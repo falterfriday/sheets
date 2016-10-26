@@ -4,9 +4,9 @@ function BatchesController(){
 	this.addBatch = function(req, res){
 		var batch = new Batches(
 		{
-			status: req.body.status, 
-			instructions: req.body.instructions, 
-			due_date: req.body.due_date, 
+			status: req.body.status,
+			instructions: req.body.instructions,
+			due_date: req.body.due_date,
 			_customer: req.body._customer,
 			order: req.body.order
 		});
@@ -14,10 +14,10 @@ function BatchesController(){
 			if(err){
 				res.json(err);
 			}else{
-				res.send()
+				res.send();
 			}
 		});
-	}
+	};
 	this.getBatches = function(req, res){
 		Batches.find({})
 		.populate("_customer")
@@ -28,21 +28,19 @@ function BatchesController(){
 				res.json(batches);
 			}
 		});
-	}
+	};
 	this.findBatch = function(req,res){
-		console.log(req.params.id)
 		Batches.findOne({_id: req.params.id})
-		.populate("_customer")
-		.exec(function(err, batch){
+		.populate("_customer").exec(function(err, batch){
 			if(err){
 				res.json(err);
 			}else{
 				res.json(batch);
 			}
 		});
-	}
+	};
 	this.updateStatus = function(req, res){
-		console.log(req.body)
+		console.log(req.body);
 		Batches.findOne({ _id: req.body._id}, function(err, batch){
 			if(err){
 				res.json(err);
@@ -66,7 +64,7 @@ function BatchesController(){
 				});
 			}
 		});
-	}
+	};
 }
 
 module.exports = new BatchesController();
