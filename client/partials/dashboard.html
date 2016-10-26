@@ -41,7 +41,7 @@
 					<td ng-if="batch.status == 'Completed'">{{batch._customer.name}}</td>
 					<td ng-if="batch.status == 'Completed'">{{batch.createdAt | date:'M/d/yy h:mm a'}}</td>
 					<td ng-if="batch.status == 'Completed'">{{batch.due_date | date:'M/d/yy'}}</td>
-					<td ng-if="batch.status == 'Completed'"><a href="">Details</a></td>
+					<td ng-if="batch.status == 'Completed'"><a href="#/view_batch/{{batch.id}}">Details</a></td>
 				</tr>
 			</tbody>
 		</table>

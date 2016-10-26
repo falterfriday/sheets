@@ -26,6 +26,11 @@ app.factory('batchFactory', ['$http', function($http){
 				callback(results.data);
 			});
 		}
+		this.findBatch = function(callback){
+			$http.get('/get_batch').then(function(results){
+				callback(results.data);
+			});
+		}
 	}
 	return new batchFactory();	
 }]);

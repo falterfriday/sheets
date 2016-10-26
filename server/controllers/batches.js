@@ -21,11 +21,22 @@ function BatchesController(){
 	this.getBatches = function(req, res){
 		Batches.find({})
 		.populate("_customer")
-		.exec(function(err,batches ){
+		.exec(function(err, batches){
 			if(err){
 				res.json(err);
 			}else{
 				res.json(batches);
+			}
+		});
+	}
+	this.getBatch = function(req,res){
+		Batches.findOne({_id: req.params.id})
+		.populate("_customer")
+		.exec(function(err, batch){
+			if(err){
+				res.json(err);
+			}else{
+				res.json(batch);
 			}
 		});
 	}

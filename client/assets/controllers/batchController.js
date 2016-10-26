@@ -2,6 +2,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	$scope.customers;
 	$scope.items;
 	$scope.batches;
+	$scope.package;
 	$scope.queued_item;
 	$scope.selected = false;
 	$scope.selected2 = false;
@@ -16,9 +17,15 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	$scope.queue = [];
 	$scope.problem;
 
+	$scope.viewBatch = function(){
+		batchFactory.findBatch($routeParams, function(results){
+			$scope.package = results;
+		});
+	};
 	$scope.getBatches = function(){
 		batchFactory.allBatches(function(results){
 			$scope.batches = results;
+			// console.log($scope.batches)
 		});
 	};
 	$scope.getCustomers = function(){

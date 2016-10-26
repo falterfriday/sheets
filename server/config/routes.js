@@ -9,7 +9,7 @@ module.exports = function(app){
 	app.post('/edit_customer/:id', customers.editCustomer);
 	app.post('/delete_customer', customers.deleteCustomer);
 	app.post('/create_item', items.createItem);
-	app.get('/get_items',items.getItems);
+	app.get('/get_items', items.getItems);
 	app.post('/edit_item/:id', items.editItem);
 	app.post('/delete_item', items.deleteItem);
 	app.post('/add_batch', batches.addBatch);
@@ -20,4 +20,5 @@ module.exports = function(app){
 	app.get('/getAdmins', admins.getAdmin);
 	app.post('/checkAdmin', admins.verifyAdmin);
 	app.post('/checkMaster', admins.verifyMaster);
+	app.get('/get_batch', batches.findBatch);
 }
