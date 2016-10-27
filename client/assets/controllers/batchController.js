@@ -21,6 +21,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		batchFactory.findBatch($routeParams, function(results){
 			$scope.package = results;
 		});
+
 	};
 	$scope.getBatches = function(){
 		batchFactory.allBatches(function(results){
@@ -32,6 +33,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		batchFactory.allCustomers(function(results){
 			$scope.customers = results;
 		});
+		$location.url('/view_batch');
 	};
 	$scope.getItems = function(){
 		batchFactory.allItems(function(results){
@@ -77,10 +79,9 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		$scope.newBatch.status = "Received";
 		batchFactory.create($scope.newBatch, function(results){
 			if(err){
-				console.log(results.data)
 				$scope.problem = results.data;
 			}else{
-			$location.url('/dashboard');
+				$location.url('/dashboard');
 			}
 		});
 	};

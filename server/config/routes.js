@@ -22,3 +22,4 @@ module.exports = function(app){
 	app.post('/checkMaster', admins.verifyMaster);
 	app.post('/get_batch', batches.findBatch);
 };
+
