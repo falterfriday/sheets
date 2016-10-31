@@ -205,7 +205,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 
 		}
 	};
-	adminFactory.getUserStatus(function(user){
-		$rootScope.current_user = user;
-	});
+	// adminFactory.getUserStatus(function(user){
+	// 	$rootScope.current_user = user;
+	// });
 }]);

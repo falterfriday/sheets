@@ -36,8 +36,12 @@ function AdminsController(){
 	this.verifyAdmin = function(req, res){
 		Admins.findOne({email: req.body.email}, function(err, user){
 			if(err){
+				console.log("error")
+				console.log("///////")
 				res.json(err);
 			} else {
+				console.log("/////////////////////////////////")
+				console.log(user)
 				res.json(user);
 			}
 		});
