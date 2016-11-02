@@ -20,6 +20,8 @@ app.factory('adminFactory', ['$http', function($http){
 			});
 		};
 		this.verifyAdmin = function(login, callback){
+			console.log("verify admin")
+			console.log("///////"*50)
 			$http.post('/checkAdmin', login).then(function(results){
 				if (results.data){
 					current_user.master = "no";
@@ -33,6 +35,8 @@ app.factory('adminFactory', ['$http', function($http){
 			});
 		};
 		this.verifyMaster = function(login, callback){
+			console.log("verify master")
+			console.log("///////"*50)
 			$http.post('/checkMaster', login).then(function(results){
 				current_user.master = results.data.master;
 				current_user.admin = results.data.admin;

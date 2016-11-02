@@ -13,6 +13,8 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 
 	$scope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
+			console.log("getting user status")
+			console.log("///////"*50)
 			$rootScope.current_user = user;
 		});
 	}
@@ -32,13 +34,22 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	};
 
 	$scope.verify = function(){
+		console.log("start")
+		console.log("///////"*50)
 		adminFactory.verifyMaster($scope.login, function(results){
+			console.log(results)
 			if(results.message){
 				adminFactory.verifyAdmin($scope.login, function(results){
+					// there is something wrong with the logic of results ==null
 					if(results == null){
+						console.log("nada")
+						console.log(results)
+						console.log("///////"*50)
 						 $scope.update = "Nope"
 						 $scope.getUserStatus();
 					}else{
+						console.log("success")
+						console.log("///////"*50)
 						$cookies.putObject("user",results)
 						$scope.getUserStatus();
 						$location.url('/stations')
