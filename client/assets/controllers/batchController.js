@@ -33,7 +33,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 		batchFactory.allCustomers(function(results){
 			$scope.customers = results;
 		});
-		$location.url('/view_batch');
 	};
 	$scope.getItems = function(){
 		batchFactory.allItems(function(results){
