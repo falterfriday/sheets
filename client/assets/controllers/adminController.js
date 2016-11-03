@@ -14,7 +14,6 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	$scope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
 			console.log("getting user status")
-			console.log("///////"*50)
 			$rootScope.current_user = user;
 		});
 	}
@@ -34,8 +33,7 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	};
 
 	$scope.verify = function(){
-		console.log("start")
-		console.log("///////"*50)
+		console.log("login credentials ", $scope.login );
 		adminFactory.verifyMaster($scope.login, function(results){
 			console.log(results)
 			if(results.message){
