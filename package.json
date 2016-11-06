@@ -13,7 +13,7 @@
     "bcrypt": "*",
     "body-parser": "*",
     "express": "*",
-    "mongoose": "*",
+    "mongoose": "^4.6.6",
     "path": "*"
   },
   "devDependencies": {}
