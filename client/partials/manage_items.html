@@ -1,6 +1,9 @@
-<h1>All Items</h1>
-<input type="text" ng-model="search">
-<button id="add_item"><a href="#/new_item">Add Item</a></button>
+<div class="padding">
+	<h1>Items</h1>
+</div>
+<div layout="column" layout-align="center" class="padding">
+	<input type="text" ng-model="search">
+	<button id="add_item"><a href="#/new_item">Add Item</a></button>
 	<table>
 		<thead>
 			<th>Name</th>
@@ -21,6 +24,7 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 <style>
 	* {
 		font-family: Arial;
@@ -84,7 +88,7 @@
 		text-decoration: none;
 	}
 
-	img{	
+	img{
 		width: 8%;
 		height:auto;
 		position:absolute;
