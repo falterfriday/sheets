@@ -45,7 +45,7 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 
 	$scope.home = function(){
 		$location.url('/stations');
-	}
+	};
 
 	$scope.selectPerItem = function(){
 		var arr = $scope.items;
