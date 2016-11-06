@@ -1,13 +1,13 @@
-app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookies', '$routeParams', function($scope, itemFactory, $location, $cookies, $routeParams){
-	$scope.id = $routeParams.id
+app.controller('itemController', ['$scope','$rootScope', 'itemFactory', '$location', '$cookies', '$routeParams', function($scope, $rootScope, itemFactory, $location, $cookies, $routeParams){
+	$scope.id = $routeParams.id;
 	$scope.items;
 	$scope.item;
 	$scope.id;
-	
+
 	function getPrice(num){
 		return (num/100).toFixed(2);
 	}
-	
+
 	function setPrice(num){
 		return num*100;
 	}
@@ -21,7 +21,7 @@ app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookie
 				}
 			}
 		});
-	}
+	};
 	$scope.allItems();
 
 	$scope.addItem = function(){
@@ -30,18 +30,18 @@ app.controller('itemController', ['$scope', 'itemFactory', '$location', '$cookie
 			$scope.newItem = {};
 		});
 		$location.url('/item_manage');
-	}
+	};
 
 	$scope.updateItem = function(){
 		itemFactory.edit($scope.id, $scope.item, function(results){
-			$scope.update = (results.name + ' was updated!');	
+			$scope.update = (results.name + ' was updated!');
 		});
 		$location.url('/item_manage');
-	}
+	};
 
 	$scope.deleteItem = function(){
 		itemFactory.delete($routeParams, function(results){
 			$location.url('/item_manage');
 		});
-	}
+	};
 }]);
