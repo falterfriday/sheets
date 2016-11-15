@@ -10,7 +10,7 @@
 <div layout="row" class="tables">
 	<table>
 		<thead>
-			<th id="thead_left">Company Name</th>
+			<th>Company Name</th>
 			<th>Contact Name</th>
 			<th>Phone No.</th>
 			<th>Action</th>
@@ -26,7 +26,7 @@
 	</table>
 </div>
 <md-content>
-	<section layout="row" layout-align="center ">
+	<section layout="row" layout-align="center">
 		<md-button id="create_customer" class="md-primary md-raised" href="#/new_customer" flex>Create Customer</md-button>
 	</section>
 </md-content>
@@ -70,5 +70,8 @@
 	    color: white;
 	    font-size: 3em;
 	    border: solid 2px gray;
+	}
+	tr:nth-child(even) {
+		background-color: #dddddd;
 	}
 </style>
