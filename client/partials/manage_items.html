@@ -1,9 +1,13 @@
-<div class="padding">
+<div layout="row" class="padding">
 	<h1>Items</h1>
 </div>
-<div layout="column" layout-align="center" class="padding">
-	<input type="text" ng-model="search">
-	<button id="add_item"><a href="#/new_item">Add Item</a></button>
+<div layout="row" class="padding">
+	<md-input-container class="m-block">
+		<label>Search</label>
+		<input ng-model="search">
+	</md-input-container>
+</div>
+<div layout="row" class="tables">
 	<table>
 		<thead>
 			<th>Name</th>
@@ -25,6 +29,11 @@
 		</tbody>
 	</table>
 </div>
+<md-content>
+	<section layout="row" layout-align="center">
+		<md-button id="create_item" class="md-primary md-raised" href="#/new_item" flex>Create Item</md-button>
+	</section>
+</md-content>
 <style>
 	* {
 		font-family: Arial;
@@ -34,67 +43,35 @@
 		margin-bottom: 1em;
 		margin-top: 0;
 	}
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		border: solid gray 0.1em;
+	.tables {
+		border: solid black 1px;
+		display: inline-block;
+		margin-left: 0.5em;
+		width: 98.2%;
+		height: 73vh;
+		margin-bottom: 0.5em;
+		overflow: auto;
 	}
-	thead th {
-		height: 2em;
-		font-size: 1.8em;
+	.tables table {
+	    border-collapse: collapse;
+	    width: 100%;
+		border: solid gray 1px;
+		color: black;
 	}
-	#thead_left {
-	}
-	th {
-		background-color: #81efed;
-		/*letter-spacing: .5em;*/
-	}
-	td, th {
-		border: 0.1em solid #dddddd;
+	.tables td, .tables th {
+		border: 1px solid #dddddd;
 		text-align: left;
-		font-size: 2.0em;
 		padding: 8px;
 	}
-	tr:nth-child(even) {
-		background-color: #dddddd;
-	}
-	input[type=text] {
-	    width: 49%;
-	    padding: 1em 1.67px;
-	    margin:0;
-	    box-sizing: border-box;
-	    border-radius: 0.4em;
-	    font-size: 1.35em;
-		display: inline-block;
-		vertical-align: top;
+	.tables th {
+		border: none;
+		background-color: #81efed;
 	}
 	#add_item {
-		background-color: #2a8484;
-		margin-bottom: 1rem;
-		margin-top: 0;
-		width: 50.4%;
-		height:6.5em;
-		/*box-shadow: 10px 10px 5px #888888;*/
-		border-radius: 1em;
-		vertical-align: top;
+		padding-top: 2.4vh;
+	    height: 8vh;
+	    color: white;
+	    font-size: 3em;
+	    border: solid 2px gray;
 	}
-	#add_item a {
-		text-decoration: none;
-		display: block;
-		color: white;
-		font-size: 4em;
-	}
-	a {
-		text-decoration: none;
-	}
-
-	img{
-		width: 8%;
-		height:auto;
-		position:absolute;
-		right:0;
-		top:0;
-		padding:1%;
-	}
-
 </style>
