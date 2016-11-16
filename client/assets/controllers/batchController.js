@@ -43,10 +43,6 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 	$scope.getCustomers();
 	$scope.getItems();
 
-	$scope.home = function(){
-		$location.url('/stations');
-	};
-
 	$scope.selectPerItem = function(){
 		var arr = $scope.items;
 		for (var i=0; i<arr.length; i++){
@@ -204,7 +200,4 @@ app.controller('batchController', ['$scope', '$rootScope', 'adminFactory', 'batc
 
 		}
 	};
-	// adminFactory.getUserStatus(function(user){
-	// 	$rootScope.current_user = user;
-	// });
 }]);
