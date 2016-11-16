@@ -104,10 +104,4 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	  $cookies.remove('user');
 	  $scope.getName();
 	};
-	// adminFactory.getUserStatus(function(user){
-	//   $rootScope.current_user = user;
-	// });
-	$scope.home = function(){
-		$location.url('/stations');
-	};
 }]);
