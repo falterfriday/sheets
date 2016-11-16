@@ -2,7 +2,6 @@
 <html ng-app ="app">
 <head>
 	<title>Sheets!</title>
-</head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="angular/angular.min.js"></script>
     <script src="angular-route/angular-route.min.js"></script>
@@ -25,16 +24,17 @@
     <script src="./assets/controllers/itemController.js"></script>
     <script src="./assets/controllers/adminController.js"></script>
     <link rel="stylesheet" href="./main.css" media="screen">
+</head>
 <body layout="column">
     <div class="wrapper" flex="100" ng-cloak>
 <!-- ____________________________PERSISTENT STATUS BAR____________________________ -->
-        <md-toolbar class="md-success md-primary md-hue-1" ng-controller="userController" ng-if="current_user.admin == 'admin' || current_user.master == 'master'">
+        <md-toolbar class="md-success md-primary md-hue-1" ng-controller="adminController">
             <div class="md-toolbar-tools" layout="row" flex>
                 <h1 flex="80" ng-if="!username"></h1>
-                <h1 flex="80" ng-if="username">Hi, {{username}}!</h1>
-                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()" ng-controller="batchController">Change User</md-button>
-                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="home" ng-click="home()" ng-controller="batchController">Home</md-button>
-                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="logout" ng-click="logOut()" ng-controller="adminController">Log Out</md-button>
+                <h1 flex="80" ng-if="username"></h1>
+                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" ng-click="removeName()">Change User</md-button>
+                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="home" href="#/stations">Home</md-button>
+                <md-button flex="20" class="md-warn md-raised" layout-align="stretch" id="logout" ng-click="logOut()" ng-if="current_user != false">Log Out</md-button>
             </div>
         </md-toolbar>
 <!-- _____________________________________________________________________________ -->
@@ -42,5 +42,4 @@
         </div>
     </div>
 </body>
-
 </html>
