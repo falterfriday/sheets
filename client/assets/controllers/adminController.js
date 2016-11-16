@@ -1,8 +1,12 @@
-app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$location', '$cookies', function($scope, $rootScope, adminFactory, $location, $cookies){
+app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$location', '$cookies', '$mdDialog', function($scope, $rootScope, adminFactory, $location, $cookies, $mdDialog){
+	console.log("adminController hit", $cookies.getObject('user'));
+	console.log("adminController cookies", $cookies.getObject('user'));
+	console.log("adminController current_user", $rootScope.current_user);
 	// $scope.update;
 	// $scope.admins;
 
-	$scope.current_user = {};
+	$rootScope.current_user = false;
+
 
 	$scope.getAdmins = function(){
 		adminFactory.allAdmins(function(results){
@@ -11,9 +15,9 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 	};
 	$scope.getAdmins();
 
-	$scope.getUserStatus = function(){
+	$rootScope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
-			// console.log("getting user status")
+			console.log("getting user status")
 			$rootScope.current_user = user;
 		});
 	};
@@ -41,23 +45,69 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 					// there is something wrong with the logic of results ==null
 					if(results === null){
 						 $scope.update = "Nope";
-						 $scope.getUserStatus();
+						 $rootScope.getUserStatus();
 					}else{
 						$cookies.putObject("user",results);
-						$scope.getUserStatus();
+						$rootScope.getUserStatus();
 						$location.url('/stations');
 					}
 				});
 			}else{
 				$cookies.putObject("user",results);
-				$scope.getUserStatus();
+				$rootScope.getUserStatus();
 				$location.url('/update_user');
 			}
 		});
 	};
 	$scope.logOut = function(){
 		$cookies.remove("user");
-		$rootScope.current_user = {};
+		$rootScope.current_user = false;
 		$location.url('/welcome');
+	};
+/////////////////migrated userController////////////////////////////
+	$scope.admin = $cookies.getObject("user");
+
+	$scope.showPrompt = function(ev) {
+		var confirm = $mdDialog.prompt()
+		.title('Hello!')
+		.textContent('Please Enter Your Name')
+		.placeholder('')
+		.ariaLabel('Name input')
+		.initialValue('')
+		.targetEvent(ev)
+		.ok('Submit')
+		.cancel('Cancel');
+
+	$mdDialog.show(confirm).then(function(result) {
+	  if (result === undefined){
+		  $scope.getName();
+	  } else {
+		  $scope.username = result;
+		  $cookies.putObject('user',{username:result});
+	  }
+	},
+	  function() {
+		  $scope.getName();
+	  });
+	};
+	$scope.getName = function(){
+	  if ($cookies.getObject('user') === "" || !$cookies.getObject('user')){
+		  $scope.showPrompt();
+	  } else {
+		  $scope.username = $cookies.getObject('user').username;
+		  $rootScope.getUserStatus();
+	  }
+	};
+	$scope.getName();
+
+	$scope.removeName = function(){
+	  $cookies.remove('user');
+	  $scope.getName();
+	};
+	// adminFactory.getUserStatus(function(user){
+	//   $rootScope.current_user = user;
+	// });
+	$scope.home = function(){
+		$location.url('/stations');
 	};
 }]);
