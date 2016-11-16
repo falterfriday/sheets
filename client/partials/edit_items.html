@@ -1,50 +1,49 @@
-<h1>Edit Item</h1>
-<form ng-submit = "updateItem()" class = ".edit_Items_css">
-	<label>Name: <input type="text" ng-model="item.name"></label><br>
-  	<label>Type: <input type="text" ng-model="item.type"></label><br>
-  	<label>Size: <input type="text" ng-model="item.size"></label><br>
-  	<label>Per item<input type="radio" name="per" ng-model="item.per" value="item"></label><br>
-  	<label>Per pound<input type="radio" name="per" ng-model="item.per" value="pound"></label><br>
-  	<label>Price: <input type="text" ng-model="item.price"></label><br>
-  	<input type="submit" value="Update Item">
-</form>
-	<button ng-click = "deleteItem()">Delete</button>
+<div class="padding" layout="row">
+	<h1>Edit Item</h1>
+</div>
+<div class="padding" layout="column" layout-align="center">
+   <form ng-submit="updateItem()">
+      <md-input-container class="md-block">
+         <label>Name</label>
+         <input type="text" ng-model="item.name">
+      </md-input-container>
+      <md-input-container class="md-block">
+         <label>Type</label>
+         <input type="text" ng-model="item.type">
+      </md-input-container>
+      <md-input-container class="md-block">
+         <label>Size</label>
+         <input type="text" ng-model="item.size">
+      </md-input-container>
+      <md-input-container class="md-block">
+         <md-radio-group ng-model="item.per" layout="row">
+				<md-radio-button value="item" primary>Per Item</md-radio-button>
+				<md-radio-button value="pound" primary>Per Pound</md-radio-button>
+			</md-radio-group>
+      </md-input-container>
+      <md-input-container class="md-block margin">
+         <label>Price</label>
+         <input type="text" ng-model="item.price">
+      </md-input-container>
+      <md-content>
+         <section layout="row" layout-align="center">
+            <input id="update" class="md-button md-primary md-raised md-hue-1" type="submit" value="Update Item" flex>
+         </section>
+      </md-content>
+   </form>
+</div>
+<div class="padding" layout="row" layout-align="center" flex>
+   <md-button class="customer_button md-primary md-raised md-warn" ng-click="deleteItem()" flex="50">Delete Item</md-button>
+   <md-button class="customer_button md-primary md-hue-1 md-raised" href="#/customer_manage" flex="50">Cancel</md-button>
+</div>
 <style>
-   .edit_Items_css {
-       width: 100%;
-       padding: 1em 1.25px;
-       border: none;
-       border-radius: 4px;
-       background-color: #f1f1f1;
-       height:1.67em;
-   }
-
-   input[type=text] {
-       width: 100%;
-       padding: 1em 1.67px;
-       margin: 0.67em 0;
-       box-sizing: border-box;
-       display: block;
-       border-radius: 5px;
-       font-size: 1.35em;
-   }
-
-   input[type=submit] {
-       width: 100%;
-       background-color: #3366ff;
-       color: white;
-       padding: 1.0px 1.0px;
-       margin: 8px 0;
-       border: none;
-       border-radius: 0.3em;
-       cursor: pointer;
-       height:7.97em;
-       font-size:1.0em;
-   }
-   button {
-    color: white;
-    background-color: #3366ff;
-    border-radius: 5px;
-    font-size: 1.0em;
-  }
+   h1 {
+		font-size: 3.5em;
+		margin-bottom: 0px;
+		margin-top: 0px;
+		vertical-align: top;
+	}
+   .margin {
+        margin-bottom: 49vh;
+    }
 </style>

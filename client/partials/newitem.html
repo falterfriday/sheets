@@ -1,60 +1,48 @@
-<h1>Add New Item</h1>
-<form ng-submit = "addItem()">
-  <label>Name: <input type="text" ng-model="newItem.name"></label><br>
-  <label>Type: <input type="text" ng-model="newItem.type"></label><br>
-  <label>Size: <input type="text" ng-model="newItem.size"></label><br>
-  <label class="radio">Per item<input type="radio" name="per" ng-model="newItem.per" value="item"></label>
-  <label class="radio">Per pound<input type="radio" name="per" ng-model="newItem.per" value="pound"></label><br>
-  <label>Price: <input type="text" ng-model="newItem.price"></label><br>
-  <input type="submit" value="Add New Item">
-</form>
+<div layout="row" class="padding">
+	<h1>Add New Item</h1>
+</div>
+<div layout="column" layout-align="center" class="padding">
+	<form ng-submit = "addItem()">
+		<md-input-container class="md-block">
+			<label>Name</label>
+			<input type="text" ng-model="newItem.name">
+		</md-input-container>
+		<md-input-container class="md-block">
+			<label>Type</label>
+			<input type="text" ng-model="newItem.type">
+		</md-input-container>
+		<md-input-container class="md-block">
+			<label>Size</label>
+			<input type="text" ng-model="newItem.size">
+		</md-input-container>
+		<md-input-container class="md-block">
+			<md-radio-group ng-model="newItem.per" layout="row">
+				<md-radio-button value="item" primary>Per Item</md-radio-button>
+				<md-radio-button value="pound" primary>Per Pound</md-radio-button>
+			</md-radio-group>
+		</md-input-container>
+		<md-input-container class="md-block margin">
+			<label>Price</label>
+			<input type="text" ng-model="newItem.price">
+		</md-input-container>
+		<md-content>
+			<section layout="row" layout-align="center">
+				<input id="create" class="md-button md-primary md-raised" type="submit" value="Add New Item" flex>
+			</section>
+		</md-content>
+	</form>
+</div>
 <style media="screen">
 	* {
 	  font-family: arial;
 	}
 	h1 {
 		font-size: 3.5em;
-		margin-bottom: 1em;
+		margin-bottom: 5vh;
 		margin-top: 0;
 	}
-	input[type=text] {
-	  width: 100%;
-	  padding: 1em 1.67px;
-	  margin: 0.4em 0;
-	  box-sizing: border-box;
-	  display: block;
-	  border-radius: 5px;
-	  font-size: 1.35em;
-	}
-	.radio {
-		display: inline-block;
-		margin: 0.6em 0 2.6em 0;
-		width: 15%;
-	}
-	input[type=submit] {
-	  width: 100%;
-	  background-color: #f46f27;
-	  color: white;
-	  padding: 1.0px 1.0px;
-	  margin: 8px 0;
-	  border: none;
-	  border-radius: 0.3em;
-	  cursor: pointer;
-	  height:2em;
-	  font-size:4em;
-	}
-	button {
-	  color: white;
-	  border-radius: 5px;
-	  font-size: 1.0em;
-	}
-
-	img{	
-	  width: 8%;
-	  height:auto;
-	  position:absolute;
-	  right:0;
-	  top:0;
-	  padding:1%;
+	.margin {
+        margin-bottom: 49.3vh;
     }
+
 </style>
