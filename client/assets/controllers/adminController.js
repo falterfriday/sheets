@@ -17,7 +17,7 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 
 	$rootScope.getUserStatus = function(){
 		adminFactory.getUserStatus(function(user){
-			console.log("getting user status")
+			console.log("getting user status");
 			$rootScope.current_user = user;
 		});
 	};
@@ -45,7 +45,7 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 					// there is something wrong with the logic of results ==null
 					if(results === null){
 						 $scope.update = "Nope";
-						 $rootScope.getUserStatus();
+						//  $rootScope.getUserStatus();
 					}else{
 						$cookies.putObject("user",results);
 						$rootScope.getUserStatus();
@@ -95,7 +95,6 @@ app.controller('adminController', ['$scope', '$rootScope', 'adminFactory', '$loc
 		  $scope.showPrompt();
 	  } else {
 		  $scope.username = $cookies.getObject('user').username;
-		  $rootScope.getUserStatus();
 	  }
 	};
 	$scope.getName();
