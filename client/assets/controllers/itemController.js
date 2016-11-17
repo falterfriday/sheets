@@ -25,13 +25,11 @@ app.controller('itemController', ['$scope','$rootScope', 'itemFactory', '$locati
 	$scope.allItems();
 
 	$scope.addItem = function(){
-		console.log("itemController", $scope.newItem);
 		itemFactory.create($scope.newItem, function(results){
 			$scope.success = (results.name + ' was created!');
 			$scope.newItem = {};
-			console.log("itemController results = ", results);
 		});
-		// $location.url('/item_manage');
+		$location.url('/item_manage');
 	};
 
 	$scope.updateItem = function(){
