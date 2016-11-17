@@ -63,12 +63,12 @@ var ItemSchema = new mongoose.Schema({
 		maxlength: 20,
 		trim: true,
 	},
-	created_by: {
-		type: String,
-		required: true,
-		maxlength: 20,
-		trim: true,
-	},
+	// created_by: {
+	// 	type: String,
+	// 	required: true,
+	// 	maxlength: 20,
+	// 	trim: true,
+	// },
 }, {timestamps: true});
 
 var CustomerSchema = new mongoose.Schema({
